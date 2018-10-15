@@ -113,6 +113,7 @@ client.on('guildDelete', guild => {
   return channel.send(leaveembed);
 });     
 
+client.on('message', async (message) => {
 if (message.content.startsWith(`${prefix}weather`)) {
  const Discord = require('discord.js');
  let args = message.content.slice(1).split(" "); 
@@ -146,4 +147,6 @@ const weatherembed = new Discord.RichEmbed()
  });
 
 }
+	
+});
 client.login(process.env.BOT_TOKEN); 
