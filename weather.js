@@ -67,7 +67,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
   }
 	
 	if (message.content.startsWith(`${prefix}urban`)) {
-		let args = message.content.slice(2).split(" "); 
+		let args = message.content.slice(1).split(" "); 
 	if (args.length < 1) return message.channel.send("Enter in a word you want the definition for.")
 let str = args.join(" ");
 
@@ -83,7 +83,7 @@ let defineembed = new Discord.RichEmbed()
     .addField("Downvotes", json.thumbs_down, true)
     .setFooter(`Written By ${json.author}`)
     .setTimestamp();
-    return message.channel.send(defineembed);
+    message.channel.send(defineembed);
 });
 }
 	  if (message.content.startsWith(`${prefix}usage`)) {
