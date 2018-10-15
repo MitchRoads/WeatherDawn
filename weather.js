@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
-const define = require("urban");
+const define = require('urban');
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
@@ -85,7 +85,7 @@ let defineembed = new Discord.RichEmbed()
     .setTimestamp();
     return message.channel.send(defineembed);
 });
-});
+}
 	client.on('message', async (message) => {
 	  if (message.content.startsWith(`${prefix}usage`)) {
 	let server = message.guild.name;
