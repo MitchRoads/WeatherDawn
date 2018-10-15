@@ -7,7 +7,7 @@ const weather = require('weather-js')
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`);
   client.user.setActivity("The Weather Channel (w!commands)", {type: "WATCHING"});
-  client.user.setStatus("dnd")
+  client.user.setStatus("idle")
 });
 
 client.on('message', async (message) => {
@@ -76,7 +76,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.addField('⛅ `w!serverinfo`', `Displays information about ${server}.`)
 	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
-	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.)
+	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp();
 	  message.channel.send(helpembed);
     message.react("🌅");
