@@ -81,8 +81,9 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	return message.channel.send(helpembed);
     message.react("🌅");
   }
-  
-	client.on('guildCreate', guild => {
+});
+	
+client.on('guildCreate', guild => {
   let channel = client.channels.get('501489564842459147');
 
   const joinembed = new Discord.RichEmbed()
