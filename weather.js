@@ -99,7 +99,6 @@ let defineembed = new Discord.RichEmbed()
 	.addField('🌩 `w!urban`', "Displays the definition of a word.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
-
 	.setTimestamp();
 	return message.channel.send(helpembed);
     message.react("🌅");
