@@ -67,7 +67,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
   }
 	
 	if (message.content.startsWith(`${prefix}urban`)) {
-		let args = message.content.slice(1).split(" "); 
+let args = message.content.split(/ +/g).slice(1)
 	if (args.length < 1) return message.channel.send("Enter in a word you want the definition for.")
 let str = args.join(" ");
 
