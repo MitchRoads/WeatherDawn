@@ -6,8 +6,8 @@ const weather = require('weather-js')
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`);
-  client.user.setActivity("The Weather Channel (w!commands)", {type: "WATCHING"});
-  client.user.setStatus("idle")
+  client.user.setActivity("TWC || w!commands", {type: "WATCHING"});
+  client.user.setStatus("dnd")
 });
 
 client.on('message', async (message) => {
@@ -62,7 +62,6 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setTitle("PONG!") 	
 	.setDescription('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setColor(0x374f6b)
-	.setTimestamp();
 	  return message.channel.send(pingembed);
   }
 	
