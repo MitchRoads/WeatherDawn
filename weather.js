@@ -171,5 +171,4 @@ const weatherembed = new Discord.RichEmbed()
 
 }
 	
-});
 client.login(process.env.BOT_TOKEN); 
