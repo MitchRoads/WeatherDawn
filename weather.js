@@ -66,7 +66,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	  return message.channel.send(pingembed);
   }
 	
-	if (message.content.startsWith(`${prefix}urban`)) {
+	if (message.content.startsWith(`${prefix}define`)) {
 let args = message.content.split(/ +/g).slice(1)
 	if (args.length < 1) return message.channel.send("Enter in a word you want the definition for.")
 let str = args.join(" ");
@@ -75,6 +75,21 @@ let str = args.join(" ");
 urban(str).first(json => {
  if(!json) return message.channel.send("No results found from this search.")
 
+let defineembed = new Discord.RichEmbed()
+    .setTitle(json.word)
+    .setDescription(json.definition)
+    .setColor(0x374f6b)
+    .addField("Upvotes", json.thumbs_up, true)
+    .addField("Downvotes", json.thumbs_down, true)
+    .setFooter(`Written By ${json.author}`)
+    .setTimestamp();
+    message.channel.send(defineembed);
+});
+}
+	
+		if (message.content.startsWith(`${prefix}randomurban`)) {
+
+urban.random(str).first(json => {
 let defineembed = new Discord.RichEmbed()
     .setTitle(json.word)
     .setDescription(json.definition)
@@ -96,7 +111,8 @@ let defineembed = new Discord.RichEmbed()
 	.addField('⛅ `w!weather`', "Displays the weather in any valid (real) location you enter.")
 	.addField('🌥 `w!serverinfo`', `Displays information about ${server}.`)
 	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
-	.addField('🌩 `w!urban`', "Displays the definition of a word.")
+	.addField('🌩 `w!define`', "Displays the definition of a word you input.")
+	.addField('🌧 `w!randomurban`', "Displays the definition of a random word.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp();
