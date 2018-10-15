@@ -167,7 +167,7 @@ const weatherembed = new Discord.RichEmbed()
  .setTimestamp();
   return message.channel.send(weatherembed);
  });
-
 }
-	
+
+});
 client.login(process.env.BOT_TOKEN); 
