@@ -88,7 +88,8 @@ let defineembed = new Discord.RichEmbed()
 }
 	
 		if (message.content.startsWith(`${prefix}randomurban`)) {
-
+let args = message.content.split(/ +/g).slice(1)
+let str = args.join(" ");
 urban.random(str).first(json => {
 let defineembed = new Discord.RichEmbed()
     .setTitle(json.word)
