@@ -6,7 +6,7 @@ const weather = require('weather-js')
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`);
-  client.user.setActivity(`Over ${client.users.size} | w!commands`, {type: "WATCHING"});
+  client.user.setActivity(`Over ${client.users.size} Users | w!commands`, {type: "WATCHING"});
   client.user.setStatus("dnd")
 });
 
