@@ -84,7 +84,7 @@ let defineembed = new Discord.RichEmbed()
     .setFooter(`Written By ${json.author}`)
     .setTimestamp();
     return message.channel.send(defineembed);
-}
+});
 });
 	client.on('message', async (message) => {
 	  if (message.content.startsWith(`${prefix}usage`)) {
