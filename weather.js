@@ -4,7 +4,7 @@ const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
 
-  client.on("ready", async (guild) => {
+  client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
   client.user.setActivity(`Over ${client.users.size} Users | w!usage`, {type: "WATCHING"});
   client.user.setStatus("dnd")
@@ -83,7 +83,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
   }
   
 	client.on('guildCreate', guild => {
-  let channel = client.channels.get("501489564842459147");
+  let channel = client.channels.get('501489564842459147');
 
   const joinembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
@@ -99,7 +99,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 
 
 client.on('guildDelete', guild => {
-  let channel = client.channels.get("501489564842459147");
+  let channel = client.channels.get('501489564842459147');
 
   const leaveembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
