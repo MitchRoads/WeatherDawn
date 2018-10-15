@@ -71,7 +71,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	let helpembed = new Discord.RichEmbed()
 	.setTitle(`✅ Help Page`)
 	.setDescription('Below are the commands for this bot, enjoy and use them respectfully.')
-	.setColo(0x374f6b)
+	.setColor(0x374f6b)
 	.addField('☀ `w!weather`', "Displays the weather in any valid (real) location you enter.")
 	.addField('⛅ `w!serverinfo`', `Displays information about ${server}.`)
 	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
