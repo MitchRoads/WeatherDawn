@@ -59,9 +59,9 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
   }
 	if (message.content.startsWith(`${prefix}ping`)) {
 	let pingembed = new Discord.RichEmbed()
-	.setTitle("PONG!") 	 
+	.setTitle("PONG!") 	
+	.setDescription('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setColor(0x374f6b)
-	.addField("Ping:", 'Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setTimestamp();
 	  return message.channel.send(pingembed);
   }
