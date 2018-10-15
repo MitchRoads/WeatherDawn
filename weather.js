@@ -86,7 +86,6 @@ let defineembed = new Discord.RichEmbed()
     return message.channel.send(defineembed);
 });
 }
-	client.on('message', async (message) => {
 	  if (message.content.startsWith(`${prefix}usage`)) {
 	let server = message.guild.name;
 	let helpembed = new Discord.RichEmbed()
