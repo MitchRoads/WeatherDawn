@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
-const define = require('urban');
+const urban = require('urban');
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
@@ -72,7 +72,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 let str = args.join(" ");
 
 
-define(str).first(json => {
+urban(str).first(json => {
  if(!json) return message.channel.send("No results found from this search.")
 
 let defineembed = new Discord.RichEmbed()
@@ -96,8 +96,8 @@ let defineembed = new Discord.RichEmbed()
 	.addField('⛅ `w!weather`', "Displays the weather in any valid (real) location you enter.")
 	.addField('🌥 `w!serverinfo`', `Displays information about ${server}.`)
 	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
+	.addField('🌩 `w!urban`', "Displays the definition of a word.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
-	.addField('☀ `w!define`', "Displays the definition of a word.")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 
 	.setTimestamp();
