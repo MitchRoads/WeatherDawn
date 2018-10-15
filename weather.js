@@ -4,9 +4,9 @@ const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
 
-  client.on("ready", async () => {
+  client.on("ready", async (guild) => {
   console.log(`${client.user.username} is currently testing the weather!`);
-  client.user.setActivity(`Over ${client.users.size} Users | w!usage`, {type: "WATCHING"});
+  client.user.setActivity(`Over ${guild.memberCount} Users | w!usage`, {type: "WATCHING"});
   client.user.setStatus("dnd")
 });
 
