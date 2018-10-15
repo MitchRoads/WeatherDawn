@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
+const define = require("urban");
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
@@ -65,6 +66,26 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	  return message.channel.send(pingembed);
   }
 	
+	if (message.content.startsWith(`${prefix}define`)) {
+		let args = message.content.slice(1).split(" "); 
+	if args.length < 1) return message.channel.send("Enter in a word you want the definition for.")
+let str = args.join(" ");
+
+
+define(str).first(json => {
+ if(!json) return message.channel.send("No results found from this search.")
+
+let defineembed = new Discord.RichEmbed()
+    .setTitle(json.word)
+    .setDescription(json.definition || "None")
+    .addField("Upvotes", json.thumbs_up, true)
+    .addField("Downvotes", json.thumbs_down, true)
+    .setFooter(`Written By ${json.author}`)
+    .setTimestamp();
+    return message.channel.send(defineembed);
+}
+});
+	client.on('message', async (message) => {
 	  if (message.content.startsWith(`${prefix}usage`)) {
 	let server = message.guild.name;
 	let helpembed = new Discord.RichEmbed()
@@ -76,7 +97,9 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.addField('🌥 `w!serverinfo`', `Displays information about ${server}.`)
 	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
+	.addField('☀ `w!define`', "Displays the definition of a word.")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
+
 	.setTimestamp();
 	return message.channel.send(helpembed);
     message.react("🌅");
@@ -85,7 +108,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	
 client.on('guildCreate', guild => {
   let channel = client.channels.get('501489564842459147');
-
+s
   const joinembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
       .setAuthor(`Joined ${guild.name}`)
