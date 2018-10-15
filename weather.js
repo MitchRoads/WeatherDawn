@@ -6,7 +6,7 @@ const weather = require('weather-js')
 
   client.on("ready", async (guild) => {
   console.log(`${client.user.username} is currently testing the weather!`); 
-  client.user.setActivity(`Over ${client.guilds.size}| w!usage`, {type: "WATCHING"});
+  client.user.setActivity(`Over ${client.users.size}| w!usage`, {type: "WATCHING"});
   client.user.setStatus("dnd")
 });
 
@@ -85,7 +85,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	client.on('guildCreate', guild => {
   let channel = client.channels.get("499832353544470539");
 
-  const embed = new Discord.RichEmbed()
+  const joinembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
       .setAuthor(`Joined ${guild.name}`)
       .setThumbnail(guild.iconURL)
@@ -93,7 +93,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
       .addField("ID", guild.id, true)
       .addField("Users", guild.memberCount, true)
       .addField("Channels", guild.channels.size, true)
-  return channel.send(embed);
+  return channel.send(joinembed);
 });
 
 
@@ -101,7 +101,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 client.on('guildDelete', guild => {
   let channel = client.channels.get("499832353544470539");
 
-  const embed = new Discord.RichEmbed()
+  const leaveembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
       .setAuthor(`Left ${guild.name}`)
       .setThumbnail(guild.iconURL)
@@ -109,7 +109,7 @@ client.on('guildDelete', guild => {
       .addField("ID", guild.id, true)
       .addField("Users", guild.memberCount, true)
       .addField("Channels", guild.channels.size, true)
-  return channel.send(embed);
+  return channel.send(leaveembed);
 });     
 
 if (message.content.startsWith(`${prefix}weather`)) {
