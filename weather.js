@@ -6,7 +6,8 @@ const weather = require('weather-js')
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`);
-  client.user.setActivity("The Weather Channel", {type: "WATCHING"});
+  client.user.setActivity("The Weather Channel (w!commands)", {type: "WATCHING"});
+  client.user.setStatus("dnd")
 });
 
 client.on('message', async (message) => {
@@ -31,7 +32,6 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     return message.channel.send(serverembed);
   }
   
-    }
    if (message.content.startsWith(`${prefix}botinfo`)) {
 
     let bicon = client.user.displayAvatarURL;
@@ -44,10 +44,42 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Bot Tag", client.user.tag, true)
     .addField("Guilds", client.guilds.size, true)
     .addField("Users", client.users.size, true)
-    .addField("Date Of Creation", client.user.createdAt.toLocaleString())
+    .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
     .setTimestamp();
     return message.channel.send(botembed);
+  }      
+	if (message.content.startsWith(`${prefix}hello`)) {
+    	let helloembed = new Discord.RichEmbed()
+	.setTitle("Hello!")
+	.setDescription(`Hey there! How are you?`)
+	.setColor(0x374f6b)
+    message.channel.send(helloembed);
+      
+  }
+	if (message.content.startsWith(`${prefix}ping`)) {
+	let pingembed = new Discord.RichEmbed()
+	.setTitle("PONG!") 	 
+	.setColor(0x374f6b)
+	.addField("Ping:", 'Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
+	.setTimestamp();
+	  message.channel.send(pingembed);
+  }
+	
+	  if (message.content.startsWith(`${prefix}commands`)) {
+	let server = message.guild.name;
+	let helpembed = new Discord.RichEmbed()
+	.setTitle(`✅ Help Page`)
+	.setDescription('Below are the commands for this bot, enjoy and use them respectfully.')
+	.setColo(0x374f6b)
+	.addField('☀ `w!weather`', "Displays the weather in any valid (real) location you enter.")
+	.addField('⛅ `w!serverinfo`', `Displays information about ${server}.`)
+	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
+	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
+	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.)
+	.setTimestamp();
+	  message.channel.send(helpembed);
+    message.react("🌅");
   }
   
 	client.on('guildCreate', guild => {
