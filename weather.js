@@ -6,7 +6,7 @@ const weather = require('weather-js')
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`);
-  client.user.setActivity(`Over ${client.users.size} Users | w!commands`, {type: "WATCHING"});
+  client.user.setActivity(`Over ${client.users.size} Users | w!usage`, {type: "WATCHING"});
   client.user.setStatus("dnd")
 });
 
@@ -65,7 +65,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	  return message.channel.send(pingembed);
   }
 	
-	  if (message.content.startsWith(`${prefix}commands`)) {
+	  if (message.content.startsWith(`${prefix}usage`)) {
 	let server = message.guild.name;
 	let helpembed = new Discord.RichEmbed()
 	.setTitle(`✅ Help Page`)
