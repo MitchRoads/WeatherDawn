@@ -54,7 +54,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setTitle("Hello!")
 	.setDescription(`Hey there! How are you?`)
 	.setColor(0x374f6b)
-    message.channel.send(helloembed);
+   return message.channel.send(helloembed);
       
   }
 	if (message.content.startsWith(`${prefix}ping`)) {
@@ -63,7 +63,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setColor(0x374f6b)
 	.addField("Ping:", 'Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setTimestamp();
-	  message.channel.send(pingembed);
+	  return message.channel.send(pingembed);
   }
 	
 	  if (message.content.startsWith(`${prefix}commands`)) {
@@ -78,7 +78,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp();
-	  message.channel.send(helpembed);
+	return message.channel.send(helpembed);
     message.react("🌅");
   }
   
