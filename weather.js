@@ -80,6 +80,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setTimestamp();
 	return message.channel.send(helpembed);
     message.react("🌅");
+	  }
 });
 	
 client.on('guildCreate', guild => {
@@ -145,6 +146,4 @@ const weatherembed = new Discord.RichEmbed()
  });
 
 }
-
-});
 client.login(process.env.BOT_TOKEN); 
