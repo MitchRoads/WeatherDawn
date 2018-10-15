@@ -109,7 +109,6 @@ let defineembed = new Discord.RichEmbed()
 	
 client.on('guildCreate', guild => {
   let channel = client.channels.get('501489564842459147');
-s
   const joinembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
       .setAuthor(`Joined ${guild.name}`)
