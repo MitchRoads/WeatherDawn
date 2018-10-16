@@ -48,6 +48,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Guilds", client.guilds.size, true)
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
+    .addField("Memory Usage", process.memoryUsage().heapUsed / 1024 / 1024;, true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
     .setFooter("WeatherDawn", "https://i.imgur.com/MAB3T3R.png")
     .setTimestamp();
