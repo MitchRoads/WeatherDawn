@@ -4,6 +4,7 @@ const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
 const urban = require('urban');
+const superagent = require("snekfetch");
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
@@ -64,7 +65,23 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setDescription('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setColor(0x374f6b)
 	  return message.channel.send(pingembed);
-  }
+  }	  
+
+  
+    if (message.content.startsWith(`${prefix}dankmeme`)) {
+    superagent.get('https://www.reddit.com/r/dankmemes/.json')
+        .end((err, response) => {
+            const memeembed = new Discord.RichEmbed()
+                .setTitle(`Dank Meme`)
+                .setImage(response.body.url)
+                .setColor(0x374f6b)
+	        .addField("Upvotes", json.thumbs_up, true)
+                .setTimestamp();
+            message.channel.send(memeembed);
+    });
+    }
+
+  
 	
 	if (message.content.startsWith(`${prefix}define`)) {
 let args = message.content.split(/ +/g).slice(1)
