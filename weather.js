@@ -45,6 +45,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 if(!user) return message.channel.send("You haven't selected/mentioned a user whose avatar you want to see."); 
     let avatarEmbed = new Discord.RichEmbed()
     .setAuthor(`${user.tag}`, `${user.displayAvatarURL}`)
+    .setTitle('Profile Picture')
     .setImage(user.displayAvatarURL)
     .setColor("#2B547E");
     return message.channel.send(avatarEmbed);
