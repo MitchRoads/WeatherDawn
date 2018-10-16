@@ -48,7 +48,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
-    .addFooter("WeatherDawn", "(https://i.imgur.com/MAB3T3R.png")
+    .setFooter("WeatherDawn", "(https://i.imgur.com/MAB3T3R.png")
     .setTimestamp();
     return message.channel.send(botembed);
   }      
