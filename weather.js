@@ -79,14 +79,13 @@ urban(str).first(json => {
 
 let defineembed = new Discord.RichEmbed()
     .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
-    .setTitle(json.word)
+    .setTitle([json.word])
     .setDescription(json.definition)
     .setColor(0x374f6b)
-    .addField("Test", "[dab](http://google.com)")
+    .addField("Test", `[dab](http://google.com)`)
     .addField("Written By", json.author)
     .addField("Example", json.example)
     .addField("Rating", `👍 ${json.thumbs_up} 👎 ${json.thumbs_down}`, true)
-    .setFooter("", "https://i.imgur.com/EPUSjJe.jpg")
     .setTimestamp();
     message.channel.send(defineembed);
 });
