@@ -14,6 +14,8 @@ require('moment-duration-format');
   client.user.setStatus("dnd")
 });
 
+
+
 client.on('message', async (message) => {
 	
 if (message.content.startsWith(`${prefix}serverinfo`)) {		
@@ -36,6 +38,33 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .setTimestamp();
     return message.channel.send(serverembed);
   }
+	
+		if (message.content.startsWith(`${prefix}userinfo`)) {
+
+ let member = message.mentions.users.first() || message.author
+            let player = message.mentions.members.first() || message.member
+            let iicon = player.user.displayAvatarURL;
+            let roles = message.mentions.members.first().roles.map(role => role).join(" ");
+	    let user = message.mentions.users.first();
+        if(!user) return message.channel.send("You haven't selected/mentioned a user whose info you want to see.");
+            let userEmbed = new Discord.RichEmbed()
+            .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
+            .setThumbnail(user.displayAvatarURL)
+            .setColor('#2B547E')
+            .addField('User ID', user.id, true)
+            .addField('Current Tag', user.tag, true)
+            .addField('Server Nickname', `${player.displayName}`, true) 
+            .addField('Highest Member Role', `${player.highestRole.name}`, true)
+            .addField('Roles', `${roles}`)
+            .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
+            .addField('Status', user.presence.status, true)
+            .addField('Bot', user.bot, true)
+            .addField('Joined At:', `${player.joinedAt}`)
+            .addField('Account Created On:', `${player.user.createdAt}`)
+            .setThumbnail(iicon)
+            .setTimestamp();
+	 message.channel.send(userEmbed);
+	}
   
    if (message.content.startsWith(`${prefix}botinfo`)) {
 
