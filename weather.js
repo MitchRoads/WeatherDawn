@@ -83,9 +83,10 @@ let defineembed = new Discord.RichEmbed()
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .setThumbnail(message.displayURL)
+    .addField("Author", json.author)
     .addField("Example", json.example)
     .addField("Rating", `👍 ${json.thumbs_up} 👎 ${json.thumbs_down}`, true)
-    .setFooter(`Written By ${json.author}`, "https://i.imgur.com/EPUSjJe.jpg")
+    .setFooter("https://i.imgur.com/EPUSjJe.jpg")
     .setTimestamp();
     message.channel.send(defineembed);
 });
