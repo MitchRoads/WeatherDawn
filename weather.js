@@ -79,7 +79,7 @@ urban(str).first(json => {
 
 let defineembed = new Discord.RichEmbed()
     .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
-    .setURL(json.word) 
+    .setURL() 
     .setTitle([json.word])
     .setDescription(json.definition)
     .setColor(0x374f6b)
@@ -122,8 +122,8 @@ let defineembed = new Discord.RichEmbed()
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp();
-	return message.channel.send(helpembed);
-    message.react("🌅");
+	message.channel.send(helpembed);
+	message.react("🌅")
 	  }
 });
 	
