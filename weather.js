@@ -5,7 +5,8 @@ const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
 const urban = require('urban');
 const superagent = require("snekfetch");
-const moment = require("moment-duration-format");
+const moment = require('moment');
+require('moment-duration-format');
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
@@ -50,7 +51,8 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
     .addField("Uptime", client.uptime,  true)
-    .addField("Test", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`, true)
+    .addField("Memory Usage", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`, true)
+    .addField("Test", moment.duration(this.client.uptime).format('d[d ]h[h ]m[m ]s[s]', true)
     .addField("Discord.js Version", "discord.js 11.4.2", true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
     .setFooter("WeatherDawn", "https://i.imgur.com/MAB3T3R.png")
