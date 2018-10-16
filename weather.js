@@ -63,7 +63,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
             .addField('Account Created On:', `${player.user.createdAt}`)
             .setThumbnail(iicon)
             .setTimestamp();
-	 message.channel.send(userEmbed);
+	return message.channel.send(userEmbed);
 	}
   
    if (message.content.startsWith(`${prefix}botinfo`)) {
