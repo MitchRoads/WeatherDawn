@@ -78,7 +78,7 @@ urban(str).first(json => {
  if(!json) return message.channel.send("No results found from this search.")
 
 let defineembed = new Discord.RichEmbed()
-    .setAuthor("Urban Dictionary", "https://imgur.com/a/BermgL3.png")
+    .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
     .setTitle(json.word)
     .setDescription(json.definition)
     .setColor(0x374f6b)
