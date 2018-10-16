@@ -82,7 +82,7 @@ let defineembed = new Discord.RichEmbed()
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .addField("Example", json.example)
-    .setFoot("👍 Upvotes", `${json.thumbs_up}`)
+    .setFooter("👍 Upvotes", `${json.thumbs_up}`)
     .setFooter("👎 Downvotes", `${json.thumbs_down}`)
     .setFooter(`Written By ${json.author}`)
     .setTimestamp();
