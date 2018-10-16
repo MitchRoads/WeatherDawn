@@ -44,7 +44,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
  let member = message.mentions.users.first() || message.author
             let player = message.mentions.members.first() || message.member
             let iicon = player.user.displayAvatarURL;
-            let roles = message.mentions.members.first().roles.map(role => role).join(" ");
+            let roles = message.mentions.members.roles.map(role => role).join(" ");
 	    let user = message.mentions.users.first();
         if(!user) return message.channel.send("You haven't selected/mentioned a user whose info you want to see.");
             let userEmbed = new Discord.RichEmbed()
