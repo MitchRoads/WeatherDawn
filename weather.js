@@ -69,6 +69,9 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 
   
     if (message.content.startsWith(`${prefix}dankmeme`)) {
+	    let args = message.content.split(/ +/g).slice(1)
+	    let str = args.join(" ");
+            (str).first(json => {
     superagent.get('https://www.reddit.com/r/dankmemes/.json')
         .end((err, response) => {
             const memeembed = new Discord.RichEmbed()
