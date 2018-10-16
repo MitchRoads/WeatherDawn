@@ -39,6 +39,17 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     return message.channel.send(serverembed);
   }
 	
+	 if (message.content.startsWith(`${prefix}avatar`)) { 
+      let player = message.mentions.members.first() || message.member
+	   let user = player.user
+if(!user) return message.channel.send("You haven't selected/mentioned a user whose avatar you want to see."); 
+    let avatarEmbed = new Discord.RichEmbed()
+    .setAuthor(`${user.username}'s Profile Picture`)
+    .setImage(user.displayAvatarURL)
+    .setColor("#2B547E");
+    return message.channel.send(avatarEmbed);
+}
+	
 		if (message.content.startsWith(`${prefix}userinfo`)) {
 
             let player = message.mentions.members.first() || message.member
