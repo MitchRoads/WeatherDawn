@@ -80,6 +80,7 @@ urban(str).first(json => {
 let defineembed = new Discord.RichEmbed()
     .setTitle(json.word)
     .setDescription(json.definition)
+    .setURL(json.urbanURL)
     .setColor(0x374f6b)
     .addField("Upvotes", json.thumbs_up, true)
     .addField("Downvotes", json.thumbs_down, true)
