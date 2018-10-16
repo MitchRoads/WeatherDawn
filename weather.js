@@ -5,6 +5,8 @@ const { prefix, token } = require('./botconfig.json');
 const weather = require('weather-js')
 const urban = require('urban');
 const superagent = require("snekfetch");
+const moment = require("moment");
+const momentDurationFormatSetup = require("moment-duration-format");
 
   client.on("ready", async () => {
   console.log(`${client.user.username} is currently testing the weather!`); 
