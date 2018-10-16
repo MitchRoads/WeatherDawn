@@ -66,25 +66,6 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	.setColor(0x374f6b)
 	  return message.channel.send(pingembed);
   }	  
-
-  
-    if (message.content.startsWith(`${prefix}dankmeme`)) {
-	    let args = message.content.split(/ +/g).slice(1)
-	    let str = args.join(" ");
-            superagent(str).first(json => {
-    superagent.get('https://www.reddit.com/r/dankmemes/.json')
-        .end((err, response) => {
-            const memeembed = new Discord.RichEmbed()
-                .setTitle(`Dank Meme`)
-                .setImage(response.body.url)
-                .setColor(0x374f6b)
-	        .addField("Upvotes", json.thumbs_up, true)
-                .setTimestamp();
-            message.channel.send(memeembed);
-    });
-   });
-}
-
   
 	
 	if (message.content.startsWith(`${prefix}define`)) {
