@@ -78,6 +78,7 @@ urban(str).first(json => {
  if(!json) return message.channel.send("No results found from this search.")
 
 let defineembed = new Discord.RichEmbed()
+    .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
     .setTitle(json.word)
     .setDescription(json.definition)
     .setColor(0x374f6b)
@@ -95,7 +96,7 @@ let args = message.content.split(/ +/g).slice(1)
 let str = args.join(" ");
 urban.random(str).first(json => {
 let defineembed = new Discord.RichEmbed()
-    .setTitle(`${json.word}`, "https://imgur.com/a/BermgL3.png")
+    .setTitle(json.word)
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .addField("Upvotes", json.thumbs_up, true)
