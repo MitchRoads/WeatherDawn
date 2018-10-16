@@ -82,7 +82,8 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
                 .setTimestamp();
             message.channel.send(memeembed);
     });
-    }
+   });
+}
 
   
 	
