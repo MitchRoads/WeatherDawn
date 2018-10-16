@@ -49,7 +49,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
     .addField("Uptime", client.uptime, true)
-    .addField("Test", client.status, true)
+    .addField("Test", client.readyAt, true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
     .setFooter("WeatherDawn", "https://i.imgur.com/MAB3T3R.png")
     .setTimestamp();
