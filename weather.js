@@ -95,7 +95,7 @@ let args = message.content.split(/ +/g).slice(1)
 let str = args.join(" ");
 urban.random(str).first(json => {
 let defineembed = new Discord.RichEmbed()
-    .setTitle(json.word)
+    .setTitle(`${json.word}`, "https://imgur.com/a/BermgL3.png")
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .addField("Upvotes", json.thumbs_up, true)
