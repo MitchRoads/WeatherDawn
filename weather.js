@@ -167,11 +167,12 @@ let defineembed = new Discord.RichEmbed()
 	.addField('🌥 `w!serverinfo`', `Displays information about ${server}.`)
         .addField('☁ `w!userinfo`', "Displays information on yourself and any user you mention.")
 	.addField('🌩 `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
-	.addField('🌧 `w!define`', "Displays the definition of a word you input.")
+	.addField('🌧 `w!avatar`', "Displays the avatar/pfp (profile picture) of yourself or any user you mention.")
+	.addField('🌨 `w!define`', "Displays the definition of a word you input.")
 	.addField('🌦 `w!randomurban`', "Displays the definition of a random word.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
-	.setTimestamp();
+	.setTimestamp(); 
 	message.channel.send(helpembed);
 	message.react("🌅")
 	  }
