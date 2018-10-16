@@ -41,7 +41,6 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 	
 		if (message.content.startsWith(`${prefix}userinfo`)) {
 
- let member = message.mentions.users.first() || message.author
             let player = message.mentions.members.first() || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).join(" ");
@@ -154,9 +153,10 @@ let defineembed = new Discord.RichEmbed()
 	.addField('☀ `w!usage`', "Displays a help page that provides you with the commands of the bot.")
 	.addField('⛅ `w!weather`', "Displays the weather in any valid (real) location you enter.")
 	.addField('🌥 `w!serverinfo`', `Displays information about ${server}.`)
-	.addField('☁ `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
-	.addField('🌩 `w!define`', "Displays the definition of a word you input.")
-	.addField('🌧 `w!randomurban`', "Displays the definition of a random word.")
+        .addField('☁ `w!userinfo`', "Displays information on yourself and any user you mention.")
+	.addField('🌩 `w!botinfo`', "Displays infomation on the bot and an invite if you want to add it to your server as well.")
+	.addField('🌧 `w!define`', "Displays the definition of a word you input.")
+	.addField('🌦 `w!randomurban`', "Displays the definition of a random word.")
 	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp();
