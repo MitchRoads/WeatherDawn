@@ -51,7 +51,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleString(), true)
     .addField("Uptime", client.uptime,  true)
-    .addField("Last Updated At", `${moment(Date.now()).format('ET')}`)
+    .addField("Last Updated At", `${moment(Date.now()).format('EST')}`)
     .addField("Memory Usage", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`, true)
     .addField("Discord.js Version", "discord.js 11.4.2", true)
     .addField("Weather Invite", "https://bit.ly/2CLYsp0", true)
