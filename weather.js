@@ -29,6 +29,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Guild Region', message.guild.region, true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
     .addField('Guild Owner', message.guild.owner, true)
+    .setFoot(`${server}`, sicon)
     .setThumbnail(sicon) 
     .setTimestamp();
     return message.channel.send(serverembed);
