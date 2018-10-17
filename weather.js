@@ -129,8 +129,7 @@ urban(str).first(json => {
 
 let defineembed = new Discord.RichEmbed()
     .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
-    .setTitle([json.word])
-    .setURL(`http://api.urbandictionary.com/v0/define?term=`) 
+    .setTitle([json.word]) 
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .addField("Written By", json.author)
@@ -138,6 +137,7 @@ let defineembed = new Discord.RichEmbed()
     .addField("Rating", `👍 ${json.thumbs_up} 👎 ${json.thumbs_down}`, true)
     .setTimestamp();
     message.channel.send(defineembed);
+   console.log(json.response) 
 });
 }
 	
