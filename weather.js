@@ -111,7 +111,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
   }
 	
 if (message.content.startsWith(`${prefix}reportbug`)) {
-if (!message.member.hasPermission("ADMINISTRATOR")) {	
+//if (!message.member.hasPermission("ADMINISTRATOR")) {	
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501489564842459147');
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
