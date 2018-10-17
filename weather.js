@@ -31,6 +31,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Guild Name', message.guild.name, true)
     .addField('Humans', `${message.guild.members.filter(m => !m.user.bot).size}`, true)
     .addField('Bots', `${message.guild.members.filter(m => m.user.bot).size}`, true)
+    .addField('Member Total', message.guild.memberCount, true)
     .addField('Role Total', message.guild.roles.size, true)
     .addField('Channel Total', message.guild.channels.size, true)
     .addField('Region', message.guild.region, true)
