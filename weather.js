@@ -210,7 +210,8 @@ let defineembed = new Discord.RichEmbed()
 	.addField('🌧 `w!avatar`', "Displays the avatar/pfp (profile picture) of yourself or any user you mention.")
 	.addField('🌨 `w!define`', "Displays the definition of a word you input.")
 	.addField('🌦 `w!randomurban`', "Displays the definition of a random word.")
-	.addField('⛈ `w!hello`', "The name of the command mostly speaks for itself...")
+	.addField('⛈ `w!reporthelp`', "Displays a helpful usage sentance for the comamnd: w!reportbug.")
+	.addField('🌪 `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp(); 
 	message.channel.send(helpembed);
