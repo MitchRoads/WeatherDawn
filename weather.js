@@ -24,7 +24,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     let sicon = message.guild.iconURL;
     let server = message.guild.name;
     let serverembed = new Discord.RichEmbed()
-    .setTitle("Server Information", sicon)
+    .setTitle("Server Information")
     .setDescription(`Information on ${server}:`)
     .setColor(0x374f6b)
     .addField('Guild ID', message.guild.id, true)
@@ -85,7 +85,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 
     let bicon = client.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
-    .setTitle("Bot Information", client.displayAvatarURL)
+    .setTitle("Bot Information")
     .setDescription("Information on WeatherDawn:")
     .setColor(0x374f6b)
     .setThumbnail(bicon)
