@@ -135,7 +135,6 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
  message.delete();
 return message.channel.send('Test');
 	}
-}
 setTimeout(() => {
  cooldown.delete(message.author.id)
 }, cdseconds * 1000)
