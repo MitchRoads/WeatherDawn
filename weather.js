@@ -137,7 +137,7 @@ let defineembed = new Discord.RichEmbed()
     .addField("Rating", `👍 ${json.thumbs_up} 👎 ${json.thumbs_down}`, true)
     .setTimestamp();
     message.channel.send(defineembed);
-   console.log(json.response) 
+   console.log(`${json.response}`) 
 });
 }
 	
