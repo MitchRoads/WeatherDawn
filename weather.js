@@ -130,7 +130,6 @@ urban(str).first(json => {
 let defineembed = new Discord.RichEmbed()
     .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
     .setTitle([json.word])
-    .setURL(`http:\/\/urbanup.com\/`)
     .setDescription(json.definition)
     .setColor(0x374f6b)
     .addField("Written By", json.author)
