@@ -134,10 +134,11 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
       message.delete();
     return message.reply("20 second cooldown.");
   }
-
+	
+ cooldown.add(message.author.id);
   setTimeout(() => {
     cooldown.delete(message.author.id);
-  }, cdseconds * 1000);
+  }, 20000);
 	
 
 
