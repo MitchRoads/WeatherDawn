@@ -136,7 +136,7 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
     return;
   }
 
-  cooldonw.add(message.author.id);
+  cooldown.add(message.author.id);
   setTimeout(() => {
     cooldown.delete(message.author.id);
   }, 20000);
