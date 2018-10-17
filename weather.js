@@ -211,7 +211,7 @@ let defineembed = new Discord.RichEmbed()
 	.addField('🌨 `w!define`', "Displays the definition of a word you input.")
 	.addField('🌦 `w!randomurban`', "Displays the definition of a random word.")
 	.addField('⛈ `w!reporthelp`', "Displays a helpful usage sentance for the comamnd: w!reportbug.")
-	.addField('🌪 `w!reportbug`' "If you have any issues/find any bugs/errors with these commands, send us issue/error/bug reports here. Thanks.")
+	.addField('🌪 `w!reportbug`', "If you have any issues/find any bugs/errors with these commands, send us issue/error/bug reports here. Thanks.")
 	.addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp(); 
