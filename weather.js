@@ -113,7 +113,7 @@ if (message.content.startsWith(`${prefix}reportbug`)) {
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501489564842459147');
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!rUser) return message.channel.send("You haven't selected/mentioned a user who you want to report.");
+  if(!rUser) return message.channel.send("Test.");
   let reason = args.slice(1).join(" ") || "None";
 
   let errorEmbed = new Discord.RichEmbed()
