@@ -130,14 +130,14 @@ let channel = client.channels.get('501489564842459147');
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
 }
 	
-  cooldown.add(message.author.id);
-      message.delete();
-    return message.reply("20 second cooldown.");
+  //cooldown.add(message.author.id);
+     // message.delete();
+   // return message.reply("20 second cooldown.");
 	
 
-  setTimeout(() => {
-    cooldown.delete(message.author.id);
-  }, 20000);
+///  setTimeout(() => {
+//    cooldown.delete(message.author.id);
+ // }, 20000);
 	
 
 
@@ -167,6 +167,7 @@ urban(str).first(json => {
 
 let defineembed = new Discord.RichEmbed()
     .setAuthor("Urban Dictionary", "https://i.imgur.com/EPUSjJe.jpg")
+    .setURL(`http://urbanup.com/`)
     .setTitle([json.word])
     .setDescription(json.definition)
     .setColor(0x374f6b)
