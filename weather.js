@@ -8,7 +8,6 @@ const superagent = require("snekfetch");
 const cooldown = new Set();
 const cdseconds = 5;
 const moment = require('moment');
-const talkedRecently = new Set();
 require('moment-duration-format');
 
   client.on("ready", async () => {
@@ -131,15 +130,15 @@ let channel = client.channels.get('501489564842459147');
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
 }
 	
-  if (talkedRecently.has(message.author.id)) {
+  if (cooldown.has(message.author.id)) {
       message.delete();
     return message.channel.send("20 second cooldown.");
     return;
   }
 
-  talkedRecently.add(message.author.id);
+  cooldonw.add(message.author.id);
   setTimeout(() => {
-    talkedRecently.delete(message.author.id);
+    cooldown.delete(message.author.id);
   }, 20000);
 
 	
