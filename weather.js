@@ -130,6 +130,10 @@ let args = message.content.slice(1).split(" ");
   errorchannel.send(errorEmbed);
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
 	}
+	
+if (message.content.startsWith(`${prefix}report-help`)) {
+ return message.channel.send("Bug Report Usage: w!reportbug [issue]")
+}
 
 	
 	if (message.content.startsWith(`${prefix}ping`)) {
