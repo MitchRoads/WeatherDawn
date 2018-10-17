@@ -130,20 +130,16 @@ let channel = client.channels.get('501489564842459147');
   channel.send(errorEmbed);
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
 	
-	    if (talkedRecently.has("363499842607120384")) {
-            message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
-    } else {
+  if (talkedRecently.has(message.author.id)) {
+    message.channel.send("Cooldown 20 sec");
+    message.delete();
+    return;
+  }
 
-           // the user can type the command ... your command code goes here :)
-
-        // Adds the user to the set so that they can't talk for a minute
-        talkedRecently.add("363499842607120384");
-        setTimeout(() => {
-          // Removes the user from the set after a minute
-          talkedRecently.delete("363499842607120384");
-        }, 60000);
-    }
-}
+  talkedRecently.add(message.author.id);
+  setTimeout(() => {
+    talkedRecently.delete(message.author.id);
+  }, 20000);
 
 	
 if (message.content.startsWith(`${prefix}reporthelp`)) {
