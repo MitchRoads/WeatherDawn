@@ -130,12 +130,12 @@ let channel = client.channels.get('501489564842459147');
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
 }
 	
-  if (cooldown.has(message.author.id)) {
+  cooldown.add(message.author.id);
       message.delete();
     return message.reply("20 second cooldown.");
   }
 	
- cooldown.add(message.author.id);
+
   setTimeout(() => {
     cooldown.delete(message.author.id);
   }, 20000);
