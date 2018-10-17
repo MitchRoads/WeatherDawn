@@ -2,9 +2,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
-const weather = require('weather-js')
+const weather = require('weather-js');
 const urban = require('urban');
 const superagent = require("snekfetch");
+const cooldown = new Set();
+const cdseconds = 5;
 const moment = require('moment');
 require('moment-duration-format');
 
@@ -109,7 +111,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
   }
 	
 if (message.content.startsWith(`${prefix}reportbug`)) {
-	
+if (!message.member.hasPermission("ADMINISTRATOR")) {	
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501489564842459147');
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -125,11 +127,18 @@ let rUser = message.guild.member(message.mentions.users.first() || message.guild
   .addField("Error", reason)
   .setTimestamp();
 
-
   message.delete().catch(O_o=>{});
   channel.send(errorEmbed);
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+		
+ cooldown.add(message.author.id);
+ message.delete();
+return message.channel.send('Test');
 	}
+}
+setTimeout(() => {
+ cooldown.delete(message.author.id)
+}, cdseconds * 1000)
 	
 if (message.content.startsWith(`${prefix}reporthelp`)) {
  return message.channel.send("Bug Report Usage: w!reportbug [issue]")
