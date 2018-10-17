@@ -129,6 +129,7 @@ let channel = client.channels.get('501489564842459147');
   message.delete().catch(O_o=>{});
   channel.send(errorEmbed);
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+}
 	
   if (talkedRecently.has(message.author.id)) {
     message.channel.send("Cooldown 20 sec");
