@@ -6,7 +6,7 @@ const weather = require('weather-js');
 const urban = require('urban');
 const superagent = require("snekfetch");
 const cooldown = new Set();
-const cdseconds = 5;
+const cdseconds = 20;
 const moment = require('moment');
 require('moment-duration-format');
 
@@ -138,7 +138,7 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
 
   cooldown.add(message.author.id);
   setTimeout(() => {
-    cooldown.delete(message.author.id);
+    cdseconds.delete(message.author.id);
   }, 20000);
 
 	
