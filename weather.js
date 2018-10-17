@@ -132,7 +132,7 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
 }
 	
   if (talkedRecently.has(message.author.id)) {
-    message.channel.send("Cooldown 20 sec");
+    return message.channel.send("20 second cooldown.");
     message.delete();
     return;
   }
