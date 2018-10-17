@@ -107,6 +107,29 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
    return message.channel.send(helloembed);
       
   }
+	
+if (message.content.startsWith(`${prefix}bug`)) {
+	
+let args = message.content.slice(1).split(" ");
+  let reason = args.slice(1).join(" ") || "None";
+
+  let errorEmbed = new Discord.RichEmbed()
+  .setDescription("Error Report")
+  .setColor("#2B547E")
+  .addField("Error Report By", `${message.author} with ID: ${message.author.id}`)
+  .addField("Channel", message.channel)
+  .addField("Time", message.createdAt)
+  .addField("Error", reason)
+  .setTimestamp();
+
+  let errorchannel = message.guild.channels.find(c => c.name === '501950009437192203');
+  if(!errorchannel) return message.channel.send("I can't find logging channel.");
+
+
+  message.delete().catch(O_o=>{});
+  errorchannel.send(errorEmbed);
+return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+	}
 
 	
 	if (message.content.startsWith(`${prefix}ping`)) {
