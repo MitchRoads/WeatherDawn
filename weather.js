@@ -148,6 +148,18 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
 if (message.content.startsWith(`${prefix}reporthelp`)) {
  return message.channel.send("Bug Report Usage: w!reportbug [issue]")
 }
+	
+	if (message.content.startsWith(`${prefix}anyinvite`)) {
+ let args = message.content.slice(1).split(" ");
+    if (message.channel.type == "dm") return;
+	
+    let sv = client.guilds.get(args[1])
+    if (!sv) return message.channel.send(`❌ Enter a valid guild id!`)
+    sv.channels.random().createInvite().then(a => 
+    message.author.send(a.toString()))
+    message.channel.send(`📥 Guild Invite Sucessfully sent to your DMs. `)
+
+}
 
 	
 	if (message.content.startsWith(`${prefix}ping`)) {
