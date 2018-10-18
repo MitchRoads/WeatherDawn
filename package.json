@@ -17,6 +17,7 @@
       "urban": "^0.3.2",
       "moment": "^2.22.2",
         "cooldown": "^0.2.0",
-     "moment-duration-format": "^2.2.2"
+     "moment-duration-format": "^2.2.2",
+       "got": "^9.2.2"
   }
 }
