@@ -24,7 +24,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     let sicon = message.guild.iconURL;
     let server = message.guild.name;
     let serverembed = new Discord.RichEmbed()
-    .setTitle("Server Information")
+    .setTitle("👑 Server Information")
     .setDescription(`Information on ${server}:`)
     .setColor(0x374f6b)
     .addField('Guild ID', message.guild.id, true)
@@ -36,7 +36,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Channel Total', message.guild.channels.size, true)
     .addField('Region', message.guild.region, true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
-    .addField('👑 Guild Owner', message.guild.owner, true)
+    .addField('Guild Owner', message.guild.owner, true)
     .setFooter(`${server}`, sicon)
     .setThumbnail(sicon) 
     .setTimestamp();
