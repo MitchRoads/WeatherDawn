@@ -99,6 +99,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     .addField("Memory Usage", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`, true)
     .addField("Discord.js Version", "discord.js 11.4.2", true)
     .addField("Weather Invite", "`Invite:` https://bit.ly/2CLYsp0", true)
+    .addField("Dawn Public Server", "https://discord.gg/wz4NnZk", true)
     .setFooter("Created By @Dawn.Bots.INC", "https://i.imgur.com/MAB3T3R.png")
     .setTimestamp();
     return message.channel.send(botembed);
