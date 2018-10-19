@@ -244,7 +244,7 @@ let defineembed = new Discord.RichEmbed()
 	.addField('⛈ `w!reporthelp`', "Displays a helpful usage sentance for the comamnd: w!reportbug.")
 	.addField('🌪 `w!reportbug`', "If you have any issues/find any bugs/errors with these commands, send us issue/error/bug reports here. Thanks.")
 	.addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
-	.addField('"https://cdn.discordapp.com/emojis/305818615712579584.png" `w!gif`', "Displays a gif of a word you input.")
+	.addField('🔌 `w!gif`', "Displays a gif of a word you input.")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
 	.setTimestamp(); 
 	message.channel.send(helpembed);
