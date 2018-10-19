@@ -7,7 +7,7 @@ const urban = require('urban');
 const superagent = require("snekfetch");
 const cooldown = new Set();
 const cdseconds = 5;
-const got = require("got"),
+const got = require('got');
 const moment = require('moment');
 require('moment-duration-format');
 
@@ -119,11 +119,12 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${api}&tag=${encodeURIComponent(args.join(" "))}`, {json: true})
 if(!res) return message.channel.send(`I've failed to find any type of GIF that relates to that word.`)
   
-    let testembed = new Discord.RichEmbed()
+    let gifembed = new Discord.RichEmbed()
     .setImage(res.body.data.image_url)
     .setAuthor("GIF", "https://i.imgur.com/0JtpgIC.png")
+    .setFooter(`Requested By ${user.tag}`)
     .setTimestamp();
-    return message.channel.send(testembed);
+    return message.channel.send(gifembed);
   }
 	
 if (message.content.startsWith(`${prefix}reportbug`)) {
