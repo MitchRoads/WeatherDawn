@@ -298,7 +298,7 @@ let current = result[0].current;
 let location = result[0].location; 
    
 const weatherembed = new Discord.RichEmbed()
- .setTitle(`Weather For ${current.observationpoint}`)
+ .setTitle(`<:theweatherchannel:502737438112743432> Weather For ${current.observationpoint}`)
  .setDescription(`**${current.skytext}**`)
  .setThumbnail(current.imageUrl)
  .setColor(0x374f6b)
