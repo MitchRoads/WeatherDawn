@@ -193,8 +193,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 		  let player = message.mentions.members.first() || message.member
                   let user = player.user
 		const sayembed = new Discord.RichEmbed()
-	       .setTitle("Say")
-	       .setDescription(`${botmessage}`)
+	       .setTitle(`${botmessage}`)
                .setColor(0x374f6b)
 	       .setFooter(`Requested By ${user.tag}`)
 	       message.delete().catch();
