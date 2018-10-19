@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./botconfig.json');
-const { prefix, token } = require('./botconfig.json');
+const { prefix, token, api } = require('./botconfig.json');
 const weather = require('weather-js');
 const urban = require('urban');
 const superagent = require("snekfetch");
 const cooldown = new Set();
 const cdseconds = 5;
+const got = require("got"),
 const moment = require('moment');
 require('moment-duration-format');
 
@@ -111,6 +112,18 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	.setColor(0x374f6b)
    return message.channel.send(helloembed);
       
+  }
+	 if (message.content.toLowerCase().startsWith(`${prefix}gif`)) {
+  let args = message.content.split(/ +/g).slice(1)
+  if (args.length < 1) return message.channel.send(`This isn't a random gif generator, enter in a word.`)
+const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${api}&tag=${encodeURIComponent(args.join(" "))}`, {json: true})
+if(!res) return message.channel.send(`I've failed to find any type of GIF that relates to that word.`)
+  
+    let testembed = new Discord.RichEmbed()
+    .setImage(res.body.data.image_url)
+    .setAuthor("GIF", "https://i.imgur.com/0JtpgIC.png")
+    .setTimestamp();
+    return message.channel.send(testembed);
   }
 	
 if (message.content.startsWith(`${prefix}reportbug`)) {
