@@ -124,6 +124,7 @@ if(!res) return message.channel.send(`I've failed to find any type of GIF that r
     let gifembed = new Discord.RichEmbed()
     .setImage(res.body.data.image_url)
     .setAuthor("GIF", "https://i.imgur.com/0JtpgIC.png")
+    .setColor(0x374f6b)
     .setFooter(`Requested By ${user.tag}`)
     .setTimestamp();
     return message.channel.send(gifembed);
