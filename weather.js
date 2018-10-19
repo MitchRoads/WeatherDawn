@@ -185,7 +185,21 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 	.setDescription('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`')
 	.setColor(0x374f6b)
 	  return message.channel.send(pingembed);
-  }	  
+  }	 
+	
+				 if (message.content.toLowerCase().startsWith(`${prefix}say`)) {
+		  let args = message.content.split(/ +/g).slice(1)
+		  let botmessage = args.join(' ')
+		  let player = message.mentions.members.first() || message.member
+                  let user = player.user
+		const sayembed = new Discord.RichEmbed()
+	       .setTitle("Say")
+	       .setDescription(`${botmessage}`)
+               .setColor(0x374f6b)
+	       .setFooter(`Requested By ${user.tag}`)
+	       message.delete().catch();
+		 return message.channel.send(sayembed)
+	 }
   
 	
 	if (message.content.startsWith(`${prefix}define`)) {
