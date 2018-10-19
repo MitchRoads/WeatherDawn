@@ -114,6 +114,8 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
       
   }
 	 if (message.content.toLowerCase().startsWith(`${prefix}gif`)) {
+ let player = message.mentions.members.first() || message.member
+  let user = player.user
   let args = message.content.split(/ +/g).slice(1)
   if (args.length < 1) return message.channel.send(`This isn't a random gif generator, enter in a word.`)
 const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${api}&tag=${encodeURIComponent(args.join(" "))}`, {json: true})
