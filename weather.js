@@ -23,7 +23,7 @@ require('moment-duration-format');
   client.user.setActivity(`Over ${client.users.size} Users | w!usage`, {type: "WATCHING"});
    activNum = 2;
  } else if (activNum === 2) {
-   client.user.setActivity(`Over ${client.guilds.size} Users | w!usage`, {type: "WATCHING"});
+   client.user.setActivity(`Over ${client.guilds.size} Guilds | w!usage`, {type: "WATCHING"});
    activNum = 1;
  } else if (activNum === 1) {
    client.user.setActivity(`w!usage`, {type: "WATCHING"});
