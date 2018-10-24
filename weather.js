@@ -26,7 +26,7 @@ require('moment-duration-format');
    client.user.setActivity(`Over ${client.guilds.size} Guilds | w!usage`, {type: "WATCHING"});
    activNum = 1;
  } else if (activNum === 1) {
-   client.user.setActivity(`w!usage`, {type: "WATCHING"});
+   client.user.setActivity(`Help Command | w!usage`, {type: "WATCHING"});
    activNum = 0;	 
  }
 }, 22 * 1000);
