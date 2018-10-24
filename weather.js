@@ -32,8 +32,6 @@ require('moment-duration-format');
 }, 22 * 1000);
 });
 
-});
-
 
 
 client.on('message', async (message) => {
