@@ -75,9 +75,9 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 
             let player = message.mentions.members.first() || message.member
             let iicon = player.user.displayAvatarURL;
-            let roles = player.roles.map(role => role).join(" ");
+            let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
-        if(!user) return message.channel.send("You haven't selected/mentioned a user whose info you want to see.");
+	    let rolesize = player.roles.size - 1;
             let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
@@ -86,7 +86,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.displayName}`, true) 
             .addField('Highest Member Role', `${player.highestRole.name}`, true)
-            .addField('Roles', `${roles}`)
+            .addField(`Roles ${rolesize}`, `${roles}`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
             .addField('Bot', user.bot, true)
@@ -109,7 +109,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     .addField("Bot Tag", client.user.tag, true)
     .addField("Bot ID", client.user.id, true)
     .addField("Guilds", client.guilds.size, true)
-    .addField("Users", client.users.size, true)
+    .addField("Users", client.users.size, true) 
     .addField("Date Of Creation", client.user.createdAt.toLocaleDateString(), true)
     .addField("Bot Uptime", moment.duration(client.uptime).format('d[d ]h[h ]m[m ]s[s]'), true)
     .addField("Memory Usage", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`, true)
