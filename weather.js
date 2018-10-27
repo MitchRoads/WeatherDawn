@@ -135,7 +135,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     let role = args.join(` `)
     if(!role) return message.channel.send("You haven't selected a role whose info you want to see."); 
 let gRole = message.guild.roles.find(r => r.name === role);
-    if(!gRole) return message.channel.send("That role doesn't exist! Check f!roleslist for the server's roles");
+    if(!gRole) return message.channel.send("That role doesn't exist/you spelled it wrong! Check w!roleslist for the server's roles.");
 
     const status = {
         false: "No",
@@ -146,22 +146,35 @@ let gRole = message.guild.roles.find(r => r.name === role);
     let roleemebed = new Discord.RichEmbed()
     .setTitle(`💠 Roleinfo`)
     .setDescription(`Information on ${gRole.name}:`)
-    .setColor("#FFC0CB")
-    .addField("Role ID", gRole.id, inline, true)
-    .addField("Role Name", gRole.name, inline, true)
+    .setColor(0x374f6b)
+    .addField("ID", gRole.id, inline, true)
+    .addField("Name", gRole.name, inline, true)
     .addField("Mention", `<@&${gRole.id}>`, inline, true)
     .addField("Hex/Color", gRole.hexColor, inline, true)
     .addField("Members With Role", gRole.members.size, inline, true)
-    .addField("Role Position", gRole.position, inline, true)
+    .addField("Position", gRole.position, inline, true)
     .addField("Hoisted", status[gRole.hoist], inline, true)
     .addField("Mentionable", status[gRole.mentionable], inline, true)
     .addField("Managed", status[gRole.managed], inline, true)
-    .addField("Role Created", gRole.createdAt, inline, true)
+    .addField("Created", gRole.createdAt, inline, true)
     .setFooter(`${server}`, client.user.displayAvatarURL)
     .setTimestamp();
     message.channel.send(roleemebed);
 
 }
+	
+	         if (message.content.toLowerCase().startsWith(`${prefix}rolelist`)) {
+              let roles = message.guild.roles;
+              let rolesize = message.guild.roles.size - 1;
+                let list = roles.map(r => r).slice(1,45).join("\n")
+               let roleembed = new Discord.RichEmbed()
+               .setTitle(`🔷 Server Roles`)
+           .setColor("#dcc2ea")
+          .addField('Role Count', `**[${rolesize}]**`)
+          .addField('Roles', `${list}`, true)  
+        message.channel.send(roleembed);
+          } 
+	
 	 if (message.content.toLowerCase().startsWith(`${prefix}gif`)) {
  let player = message.mentions.members.first() || message.member
   let user = player.user
@@ -187,7 +200,7 @@ let channel = client.channels.get('501489564842459147');
 
   let errorEmbed = new Discord.RichEmbed()
   .setTitle("Error Report")
-  .setColor("#2B547E")
+  .setColor(0x374f6b)
   .addField("Error Report By", `${message.author} with ID: ${message.author.id}`)
   .addField("Channel", message.channel)
   .addField("Time", message.createdAt)
@@ -306,6 +319,8 @@ let defineembed = new Discord.RichEmbed()
 	.addField('🌦 `w!randomurban`', "Displays the definition of a random word.")
 	.addField('⛈ `w!reporthelp`', "Displays a helpful usage sentance for the comamnd: w!reportbug.")
 	.addField('🌪 `w!reportbug`', "If you have any issues/find any bugs/errors with these commands, send us issue/error/bug reports here. Thanks.")
+	.addField('💠 `w!roleinfo`', "Displays information on a role you input.")  
+        .addField('🔷 `w!rolelist`', `Displays a list of the server's roles.`)
         .addField('📢 `w!say`', "Displays text you input into it.")
         .addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
 	.addField('<:gif:503795498948493312> `w!gif`', "Displays a gif of a word you input.")
