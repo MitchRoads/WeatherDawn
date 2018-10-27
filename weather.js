@@ -39,6 +39,7 @@ client.on('message', async (message) => {
 if (message.content.startsWith(`${prefix}serverinfo`)) {		
     let sicon = message.guild.iconURL;
     let server = message.guild.name;
+    let rolesize = message.guild.roles.size - 1;
     let serverembed = new Discord.RichEmbed()
     .setTitle("👑 Server Information")
     .setDescription(`Information on ${server}:`)
@@ -48,7 +49,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Humans', `${message.guild.members.filter(m => !m.user.bot).size}`, true)
     .addField('Bots', `${message.guild.members.filter(m => m.user.bot).size}`, true)
     .addField('Member Total', message.guild.memberCount, true)
-    .addField('Role Total', message.guild.roles.size, true)
+    .addField('Role Total', `${rolesize}`, true)
     .addField('Channel Total', message.guild.channels.size, true)
     .addField('Region', message.guild.region, true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
