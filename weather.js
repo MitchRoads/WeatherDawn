@@ -133,7 +133,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     let inline = true 
   	let args = message.content.split(/ +/g).slice(1) 
     let role = args.join(` `)
-    if(!role) return message.channel.send("You haven't selected a role whose info you want to see."); 
+    if(!role) return message.channel.send("You haven't selected a role you want to see the info for."); 
 let gRole = message.guild.roles.find(r => r.name === role);
     if(!gRole) return message.channel.send("That role doesn't exist/you spelled it wrong! Check w!roleslist for the server's roles.");
 
@@ -169,7 +169,7 @@ let gRole = message.guild.roles.find(r => r.name === role);
                 let list = roles.map(r => r).slice(1,45).join("\n")
                let roleembed = new Discord.RichEmbed()
                .setTitle(`🔷 Server Roles`)
-           .setColor("#dcc2ea")
+           .setColor(0x374f6b)
           .addField('Role Count', `**[${rolesize}]**`)
           .addField('Roles', `${list}`, true)  
         message.channel.send(roleembed);
