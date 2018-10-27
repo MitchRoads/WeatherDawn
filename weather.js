@@ -128,7 +128,40 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	.setColor(0x374f6b)
    return message.channel.send(helloembed);
       
-  }
+  }     
+	if (message.content.toLowerCase().startsWith(`${prefix}roleinfo`)) {		
+    let inline = true 
+  	let args = message.content.split(/ +/g).slice(1) 
+    let role = args.join(` `)
+    if(!role) return message.channel.send("You haven't selected a role whose info you want to see."); 
+let gRole = message.guild.roles.find(r => r.name === role);
+    if(!gRole) return message.channel.send("That role doesn't exist! Check f!roleslist for the server's roles");
+
+    const status = {
+        false: "No",
+        true: "Yes"
+      }
+    
+    let server = message.guild.name;
+    let roleemebed = new Discord.RichEmbed()
+    .setTitle(`💠 Roleinfo`)
+    .setDescription(`Information on ${gRole.name}:`)
+    .setColor("#FFC0CB")
+    .addField("Role ID", gRole.id, inline, true)
+    .addField("Role Name", gRole.name, inline, true)
+    .addField("Mention", `<@&${gRole.id}>`, inline, true)
+    .addField("Hex/Color", gRole.hexColor, inline, true)
+    .addField("Members With Role", gRole.members.size, inline, true)
+    .addField("Role Position", gRole.position, inline, true)
+    .addField("Hoisted", status[gRole.hoist], inline, true)
+    .addField("Mentionable", status[gRole.mentionable], inline, true)
+    .addField("Managed", status[gRole.managed], inline, true)
+    .addField("Role Created", gRole.createdAt, inline, true)
+    .setFooter(`${server}`, client.user.displayAvatarURL)
+    .setTimestamp();
+    message.channel.send(roleemebed);
+
+}
 	 if (message.content.toLowerCase().startsWith(`${prefix}gif`)) {
  let player = message.mentions.members.first() || message.member
   let user = player.user
