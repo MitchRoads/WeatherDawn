@@ -381,7 +381,7 @@ if (err) message.channel.send(err);
 
    
    if (result === undefined || result.length === 0) {
-message.channel.send(`You didn't put in valid **location**, please enter one.`)
+message.channel.send(`You didn't put in a valid **location**, please enter one.`)
 return;
 }
 
