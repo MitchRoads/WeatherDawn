@@ -5,7 +5,7 @@ const { prefix, token, api } = require('./botconfig.json');
 const weather = require('weather-js');
 const urban = require('urban');
 const superagent = require("snekfetch");
-const cooldown = 300000
+const cooldown = 300000;
 const ratelimitMap = new Map();
 const ms = require("parse-ms");
 const got = require('got');
@@ -195,7 +195,6 @@ if(!res) return message.channel.send(`I've failed to find any type of GIF that r
 });
 	
 client.on('message', async (message) => {
-//if (!message.member.hasPermission("ADMINISTRATOR")) {	 
  const ratelimit = ratelimitMap.get(message.author.id)
    if(ratelimit !== null && cooldown - (Date.now() - ratelimit) > 0 ){
    let timewait = ms(cooldown - (Date.now() - ratelimit));
@@ -223,7 +222,7 @@ if (args.length < 1) return message.channel.send("You need to input an issue.")
 
   message.delete().catch(O_o=>{});
   channel.send(errorEmbed);
-return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
  ratelimitMap.set(message.author.id, Date.now())
 }
 });	
