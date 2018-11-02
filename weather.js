@@ -209,7 +209,7 @@ client.on('message', async (message) => {
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501950009437192203');
   let reason = args.slice(1).join(" ") || "None";
-if (args[0]) return message.channel.send("You need to input an issue.");
+if (!reason) return message.channel.send("You need to input an issue.");
 	 
   let errorEmbed = new Discord.RichEmbed()
   .setTitle("Error Report")
@@ -222,7 +222,10 @@ if (args[0]) return message.channel.send("You need to input an issue.");
 
   message.delete().catch(O_o=>{});
   channel.send(errorEmbed);
-message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+	  let successreport = new Discord.RichEmbed() 
+    .setColor(0x374f6b)
+    .setDescription("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+message.channel.send(successreport)
  ratelimitMap.set(message.author.id, Date.now())
 }
 });
