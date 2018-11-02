@@ -192,16 +192,15 @@ if(!res) return message.channel.send(`I've failed to find any type of GIF that r
     .setTimestamp();
     return message.channel.send(gifembed);
   }
-});
 	
-client.on('message', async (message) => {
+
  const ratelimit = ratelimitMap.get(message.author.id)
    if(ratelimit !== null && cooldown - (Date.now() - ratelimit) > 0 ){
    let timewait = ms(cooldown - (Date.now() - ratelimit));
    let timeembed = new Discord.RichEmbed()
     .setTitle("Bug Report Cooldown.") 
     .setColor(0x374f6b)
-    .setDescription(`Due to this being a report command, you have to wait **${timewait.minutes} minutes**, and **${timewait.seconds}** seconds to use this command again.`)
+    .setDescription(`Due to this being a report command, you have to wait **${timewait.minutes} minutes**, and **${timewait.seconds} seconds** to use this command again.`)
     return message.channel.send(timeembed);
    }
 	
@@ -225,19 +224,7 @@ if (args.length < 1) return message.channel.send("You need to input an issue.")
 message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
  ratelimitMap.set(message.author.id, Date.now())
 }
-});	
-  //cooldown.add(message.author.id);
-     // message.delete();
-   // return message.reply("20 second cooldown.");
 	
-
-///  setTimeout(() => {
-//    cooldown.delete(message.author.id);
- // }, 20000);
-	
-
-
-client.on('message', async (message) => {	
 if (message.content.startsWith(`${prefix}reporthelp`)) {
  return message.channel.send("Bug Report Usage: w!reportbug [issue]")
 }
