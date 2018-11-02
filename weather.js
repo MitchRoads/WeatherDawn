@@ -209,7 +209,7 @@ client.on('message', async (message) => {
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501950009437192203');
   let reason = args.slice(1).join(" ") || "None";
-else message.channel.send("You need to input an issue.");
+if (args[1]) message.channel.send("You need to input an issue.");
 	 
   let errorEmbed = new Discord.RichEmbed()
   .setTitle("Error Report")
