@@ -5,8 +5,9 @@ const { prefix, token, api } = require('./botconfig.json');
 const weather = require('weather-js');
 const urban = require('urban');
 const superagent = require("snekfetch");
-const cooldown = new Set();
-const cdseconds = 5;
+const cooldown = 300000
+const ratelimitMap = new Map();
+const ms = require("parse-ms");
 const got = require('got');
 const moment = require('moment');
 require('moment-duration-format');
@@ -191,9 +192,20 @@ if(!res) return message.channel.send(`I've failed to find any type of GIF that r
     .setTimestamp();
     return message.channel.send(gifembed);
   }
+
 	
 if (message.content.startsWith(`${prefix}reportbug`)) {
-//if (!message.member.hasPermission("ADMINISTRATOR")) {	
+//if (!message.member.hasPermission("ADMINISTRATOR")) {	 
+ const ratelimit = ratelimitMap.get(message.author.id)
+   if(ratelimit !== null && cooldown - (Date.now() - ratelimit) > 0 ){
+   let timewait = ms(cooldown - (Date.now() - ratelimit));
+   let timeembed = new Discord.RichEmbed()
+    .setTitle("Bug Report Cooldown.")
+    .setColor(0x374f6b)
+    .setDescription(`Due to this being a report command, you have to wait **${timewait.minutes} minutes**, and **${timewait.seconds}** seconds to use this command again.`)
+    return message.channel.send(timeembed);
+    }
+  
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501489564842459147');
   let reason = args.slice(1).join(" ") || "None";
@@ -210,6 +222,7 @@ let channel = client.channels.get('501489564842459147');
   message.delete().catch(O_o=>{});
   channel.send(errorEmbed);
 return message.channel.send("✅ Error Report sucessfully submitted! Thanks for taking the time to inform us of this bug!")
+ ratelimitMap.set(message.author.id, Date.now())
 }
 	
   //cooldown.add(message.author.id);
@@ -227,6 +240,7 @@ return message.channel.send("✅ Error Report sucessfully submitted! Thanks for 
 if (message.content.startsWith(`${prefix}reporthelp`)) {
  return message.channel.send("Bug Report Usage: w!reportbug [issue]")
 }
+	
 	
 	if (message.content.startsWith(`${prefix}anyinvite`)) {
  let args = message.content.slice(1).split(" ");
