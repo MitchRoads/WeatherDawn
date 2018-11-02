@@ -194,20 +194,21 @@ if(!res) return message.channel.send(`I've failed to find any type of GIF that r
   }
 
 	
-if (message.content.startsWith(`${prefix}reportbug`)) {
+
 //if (!message.member.hasPermission("ADMINISTRATOR")) {	 
  const ratelimit = ratelimitMap.get(message.author.id)
    if(ratelimit !== null && cooldown - (Date.now() - ratelimit) > 0 ){
    let timewait = ms(cooldown - (Date.now() - ratelimit));
    let timeembed = new Discord.RichEmbed()
-    .setTitle("Bug Report Cooldown.")
+    .setTitle("Bug Report Cooldown.") 
     .setColor(0x374f6b)
     .setDescription(`Due to this being a report command, you have to wait **${timewait.minutes} minutes**, and **${timewait.seconds}** seconds to use this command again.`)
     return message.channel.send(timeembed);
-    }
-  
+   }
+	
+ if (message.content.startsWith(`${prefix}reportbug`)) { 
 let args = message.content.slice(1).split(" ");
-let channel = client.channels.get('501489564842459147');
+let channel = client.channels.get('501950009437192203');
   let reason = args.slice(1).join(" ") || "None";
 
   let errorEmbed = new Discord.RichEmbed()
