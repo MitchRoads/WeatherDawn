@@ -208,8 +208,8 @@ client.on('message', async (message) => {
  if (message.content.startsWith(`${prefix}reportbug`)) { 
 let args = message.content.slice(1).split(" ");
 let channel = client.channels.get('501950009437192203');
-  let (args[0]) reason = args.slice(1).join(" ") || "None";
-else return message.channel.send("❌ You need to input an issue.");
+  let reason = args.slice(1).join(" ")
+ if (!reason) return message.channel.send("❌ You need to input an issue.");
 	 
   let errorEmbed = new Discord.RichEmbed()
   .setTitle("Error Report")
