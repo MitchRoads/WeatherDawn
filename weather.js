@@ -348,7 +348,7 @@ let defineembed = new Discord.RichEmbed()
         .addField('🔷 `w!rolelist`', `Displays a list of the server's roles.`)
         .addField('📢 `w!say`', "Displays text you input into it.")
         .addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
-        .addField('<:reddit:508922722022326272> `w!meme`', "Displays a random meme from the archives of r/dankmemes.")
+        .addField('<:reddit:508922722022326272> `w!meme`', "Displays a random meme from many reddit meme forums.")
 	.addField('<:gif:503795498948493312> `w!gif`', "Displays a gif of a word you input.")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.") 
 	.setTimestamp(); 
