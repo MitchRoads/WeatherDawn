@@ -274,7 +274,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
    let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
       let { body } = await request.get(`https://api-to.get-a.life/meme`);
     let memeembed = new Discord.RichEmbed()
-    .setAuthor('Meme', reddit)
+    .setAuthor('Meme')
     .setColor(0x374f6b)
     .setImage(body.url)
     .setFooter("Powered By Reddit", reddit)
@@ -344,7 +344,7 @@ let defineembed = new Discord.RichEmbed()
         .addField('🔷 `w!rolelist`', `Displays a list of the server's roles.`)
         .addField('📢 `w!say`', "Displays text you input into it.")
         .addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
-        .addField('<:reddit:508922722022326272> `w!meme`', "Displays a random meme from the archives r/dankmemes.")
+        .addField('<:reddit:508922722022326272> `w!meme`', "Displays a random meme from the archives of r/dankmemes.")
 	.addField('<:gif:503795498948493312> `w!gif`', "Displays a gif of a word you input.")
 	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.") 
 	.setTimestamp(); 
