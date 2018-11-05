@@ -11,6 +11,7 @@ const ratelimitMap = new Map();
 const ms = require("parse-ms");
 const got = require('got');
 const moment = require('moment');
+const meme = require('memejsfork');
 require('moment-duration-format');
 
   client.on("ready", async () => {
@@ -270,18 +271,33 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 	       message.delete().catch();
 		 return message.channel.send(sayembed)
 	 }
-		     if (message.content.startsWith(`${prefix}meme`)) {
-   let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
-      let { body } = await request.get(`https://api-to.get-a.life/meme`);
-    let memeembed = new Discord.RichEmbed()
-    .setAuthor('Meme')
-    .setColor(0x374f6b)
-    .setImage(body.url)
-    .setFooter("Powered By Reddit", reddit)
-    .setTimestamp();
-    message.channel.send(memeembed);
+// 		     if (message.content.startsWith(`${prefix}meme`)) {
+//    let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
+//       let { body } = await request.get(`https://api-to.get-a.life/meme`);
+//     let memeembed = new Discord.RichEmbed()
+//     .setAuthor('Meme')
+//     .setColor(0x374f6b)
+//     .setImage(body.url)
+//     .setFooter("Powered By Reddit", reddit)
+//     .setTimestamp();
+//     message.channel.send(memeembed);
      
-}
+// }
+	
+	if (message.content.toLowerCase().startsWith(`${prefix}meme`)) { 
+    meme(function(data) {
+      let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
+      const thisembed = new Discord.RichEmbed()
+      .setTitle(data.title[0])
+      .setColor(0x374f6b)
+      .setURL(data.url[0])
+      .setDescription(`From ${data.subreddit[0]} by ${data.author[0]}`)
+      .setImage(data.url[0])
+      .setFooter("Powered By Reddit", reddit)  
+      .setTimestamp();
+      message.channel.send(thisembed).catch(console.error);
+    });
+    }
   
 	
 	if (message.content.startsWith(`${prefix}define`)) {
