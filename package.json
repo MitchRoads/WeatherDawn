@@ -19,6 +19,7 @@
         "cooldown": "^0.2.0",
      "moment-duration-format": "^2.2.2",
        "got": "^9.2.2",
-        "parse-ms": "^2.0.0"
+        "parse-ms": "^2.0.0",
+       "memejsfork": "^1.0.0"
   }
 }
