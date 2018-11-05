@@ -274,7 +274,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
    let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
       let { body } = await request.get(`https://api-to.get-a.life/meme`);
     let memeembed = new Discord.RichEmbed()
-    .setAuthor('<:reddit:508922722022326272> Meme')
+    .setAuthor('Meme', reddit)
     .setColor(0x374f6b)
     .setImage(body.url)
     .setFooter("Powered By Reddit", reddit)
