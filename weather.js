@@ -269,6 +269,18 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 	       message.delete().catch();
 		 return message.channel.send(sayembed)
 	 }
+		     if (message.content.startsWith(`${prefix}meme`)) {
+   let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
+      let { body } = await request.get(`https://api-to.get-a.life/meme`);
+    let memeembed = new Discord.RichEmbed()
+    .setTitle('Meme')
+    .setColor(0x374f6b)
+    .setImage(body.url)
+    .setFooter("Powered By Reddit", reddit)
+    .setTimestamp();
+    message.channel.send(memeembed);
+     
+}
   
 	
 	if (message.content.startsWith(`${prefix}define`)) {
@@ -331,8 +343,9 @@ let defineembed = new Discord.RichEmbed()
         .addField('🔷 `w!rolelist`', `Displays a list of the server's roles.`)
         .addField('📢 `w!say`', "Displays text you input into it.")
         .addField('⚠ `w!hello`', "The name of the command mostly speaks for itself...")
+        .addField('😆 `w!meme`', "Displays a random meme from r/dankmemes.")
 	.addField('<:gif:503795498948493312> `w!gif`', "Displays a gif of a word you input.")
-	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.")
+	.addField('🏓 `w!ping`', "Displays your ping. Simple enough.") 
 	.setTimestamp(); 
 	message.channel.send(helpembed);
 	message.react("🌅")
