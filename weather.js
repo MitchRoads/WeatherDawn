@@ -259,7 +259,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
     let botembed = new Discord.RichEmbed()
         .setAuthor(`Amount Of Servers: [${client.guilds.size}] `, client.user.displayAvatarURL)
         .setColor(0x374f6b)
-        .addField("Servers In", ```${string}```)
+        .addField("Servers In", `\`${string}`\`)
         .setTimestamp()
         .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL);
     message.channel.send(botembed);
