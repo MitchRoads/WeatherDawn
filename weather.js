@@ -257,7 +257,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
     string += guild.name + '\n';})
     let bt = client.user.username;
     let botembed = new Discord.RichEmbed()
-        .setAuthor(`Amount Of Server`, client.guilds.size)
+        .setAuthor(`Amount Of Servers: [${client.guilds.size}] `, client.user.displayAvatarURL)
         .setColor(0x374f6b)
         .addField("Servers In", string)
         .setTimestamp()
