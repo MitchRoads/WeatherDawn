@@ -359,6 +359,9 @@ let defineembed = new Discord.RichEmbed()
 	
 client.on('guildCreate', guild => {
   let channel = client.channels.get('501489564842459147');
+	const invite = await guild.channels.first().createInvite({
+    maxAge: 0
+  });
   const joinembed = new Discord.RichEmbed()
       .setColor(0x374f6b)
       .setAuthor(`Joined ${guild.name}`)
@@ -367,6 +370,7 @@ client.on('guildCreate', guild => {
       .addField("ID", guild.id, true)
       .addField("Users", guild.memberCount, true)
       .addField("Channels", guild.channels.size, true)
+      .addField("Server Invite", `https://discord.gg/${invite.code}`, true)
   return channel.send(joinembed);
 });
 
