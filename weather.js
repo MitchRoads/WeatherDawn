@@ -249,6 +249,21 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
     message.channel.send(`📥 Guild Invite Sucessfully sent to your DMs. `)
 
 }
+	
+	      if (message.content.toLowerCase().startsWith(`${prefix}serverlist`)) {
+      let bicon = client.user.displayAvatarURL;
+    let string = '';
+    client.guilds.forEach(guild => {
+    string += guild.name + '\n';})
+    let bt = client.user.username;
+    let botembed = new Discord.RichEmbed()
+        .setAuthor(`Amount Of Server`, client.guilds.size)
+        .setColor(0x374f6b)
+        .addField("Servers In", string)
+        .setTimestamp()
+        .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL);
+    message.channel.send(botembed);
+}
 
 	
 	if (message.content.startsWith(`${prefix}ping`)) {
