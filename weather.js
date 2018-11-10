@@ -357,7 +357,7 @@ let defineembed = new Discord.RichEmbed()
 	  }
 });
 	
-client.on('guildCreate', guild => {
+client.on('guildCreate', async guild => {
   let channel = client.channels.get('501489564842459147');
 	const sinvite = await guild.channels.first().createInvite({
     maxAge: 0
