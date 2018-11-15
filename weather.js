@@ -43,13 +43,14 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     let sicon = message.guild.iconURL;
     let server = message.guild.name;
     let rolesize = message.guild.roles.size - 1;
+    let realtotal = message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size;
     let serverembed = new Discord.RichEmbed()
     .setTitle("👑 Server Information")
     .setDescription(`Information on ${server}:`)
     .setColor(0x374f6b)
     .addField('Guild ID', message.guild.id, true)
     .addField('Guild Name', message.guild.name, true)
-    .addField('Humans', `${message.guild.members.filter(m => !m.user.bot).size}`, true)
+    .addField('Humans', `${realtotal}`, true)
     .addField('Bots', `${message.guild.members.filter(m => m.user.bot).size}`, true)
     .addField('Member Total', message.guild.memberCount, true)
     .addField('Role Total', `${rolesize}`, true)
