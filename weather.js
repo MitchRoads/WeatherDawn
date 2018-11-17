@@ -95,8 +95,8 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
             .addField('Bot', user.bot, true)
-            .addField('Joined At:', `${player.joinedAt}`)
-            .addField('Account Created On:', `${player.user.createdAt}`)
+            .addField('Joined On:', `${player.joinedAt.toUTCString()}`)
+            .addField('Account Created On:', `${player.user.createdAt.toUTCString()}`)
             .setThumbnail(iicon)
             .setTimestamp();
 	return message.channel.send(userEmbed);
