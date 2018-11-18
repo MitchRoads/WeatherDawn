@@ -116,7 +116,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     .addField("Guilds", client.guilds.size, true)
     .addField("Users", client.users.size, true) 
     .addField("Date Of Creation", client.user.createdAt.toLocaleDateString(), true)
-    .addField("Bot Uptime", moment.duration(client.uptime).format('d[d ]h[h ]m[m ]s[s]'), true)
+    .addField("Bot Uptime", moment.duration(client.uptime).format('d[d] h[h] m[m] s[s]'), true)
     .addField("Memory Usage", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`, true)
     .addField("Discord.js Version", "discord.js 11.4.2", true)
     .addField("Weather Invite", "`Invite Me:` https://bit.ly/2NOmKQn", true)
