@@ -71,6 +71,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
     let avatarEmbed = new Discord.RichEmbed()
     .setAuthor(`${user.tag}`, `${user.displayAvatarURL}`)
     .setTitle('Profile Picture')
+    .setURL(user.displayAvatarURL)
     .setImage(user.displayAvatarURL)
     .setColor("#2B547E");
     return message.channel.send(avatarEmbed);
