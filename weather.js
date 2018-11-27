@@ -219,7 +219,7 @@ let channel = client.channels.get('501950009437192203');
   .setTitle("Error Report")
   .setColor(0x374f6b)
   .addField("Error Report By", `${message.author} with ID: ${message.author.id}`)
-  .addField("Channel", message.channel)
+  .addField("Guild", `${message.guild.name} with ID: ${message.guild.id} and owned by ${message.guild.owner.user.tag}`)
   .addField("Time", message.createdAt)
   .addField("Error", reason)
   .setTimestamp();
