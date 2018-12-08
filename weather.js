@@ -11,7 +11,7 @@ const ratelimitMap = new Map();
 const ms = require("parse-ms");
 const got = require('got');
 const moment = require('moment');
-const meme = require('memejsfork');
+const randommeme = require('random-puppy');
 require('moment-duration-format');
 
   client.on("ready", async () => {
@@ -288,22 +288,38 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 	       message.delete().catch();
 		 return message.channel.send(sayembed)
 	 }
-	
-	if (message.content.toLowerCase().startsWith(`${prefix}meme`)) { 
-    meme(function(data) {
-      let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png"
-      const thisembed = new Discord.RichEmbed()
-      .setTitle(data.title[0])
-      .setColor(0x374f6b)
-      .setURL(data.url[0])
-      .setDescription(`Sourced From ${data.subreddit[0]}`)
-      .setImage(data.url[0])
-      .setFooter("Powered By Reddit", reddit)  
-      .setTimestamp();
-      message.channel.send(thisembed).catch(console.error);
-    });
-    }
   
+	if (message.content.startsWith(`${prefix}meme`)) {
+	         let memereddits = [
+ 'crappydesign',
+'dankmemes',
+'me_irl',
+'wholesomememes',
+'blackmagicfuckery',
+'OffensiveMemes',
+'cringepics',
+'Unexpected',
+'memes',
+'technicallythetruth',
+'2meirl4meirl',
+'ShittyLifeProTips',
+'AnAttemptWasMade',
+'facepalm',
+'iamverysmart',
+'quityourbullshit'
+    ]
+    let api = memereddits[Math.round(Math.random() * (memereddits.length - 1))];
+    let reddit = "https://image.ibb.co/jypUHf/580b57fcd9996e24bc43c531.png";
+      randommeme(api).then(api => {
+           const theirembed = new Discord.RichEmbed()
+            .setTitle("Meme")
+            .setColor(0x374f6b)
+            .setImage(api)
+            .setFooter("Powered By Reddit", reddit)  
+            .setTimestamp();
+      message.channel.send(theirembed)
+      })
+     }
 	
 	if (message.content.startsWith(`${prefix}define`)) {
 let args = message.content.split(/ +/g).slice(1)
