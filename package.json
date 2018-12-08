@@ -20,6 +20,7 @@
      "moment-duration-format": "^2.2.2",
        "got": "^9.2.2",
         "parse-ms": "^2.0.0",
-       "memejsfork": "^1.0.0"
+       "memejsfork": "^1.0.0",
+     "random-puppy": "^1.1.0"
   }
 }
