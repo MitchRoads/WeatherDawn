@@ -78,8 +78,8 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 }
 	
 		if (message.content.startsWith(`${prefix}userinfo`)) {
-
-            let player = message.mentions.members.first() || message.member
+	    let args = message.content.split(/ +/g).slice(1) 
+            let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === args[0]) || message.guild.members.find(mem => mem.user.username === args[0]) || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
