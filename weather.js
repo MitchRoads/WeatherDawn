@@ -172,6 +172,7 @@ let gRole = message.guild.roles.find(r => r.name === role);
               let roles = message.guild.roles;
               let rolesize = message.guild.roles.size - 1;
                 let list = roles.map(r => r).slice(1,45).join("\n")
+		if (rolesize.length > 46) return message.channel.send("Seems that there are over 45 roles here... crap.")
                let roleembed = new Discord.RichEmbed()
                .setTitle(`🔷 Server Roles`)
            .setColor(0x374f6b)
@@ -241,6 +242,7 @@ if (message.content.startsWith(`${prefix}reporthelp`)) {
 	
 	
 	if (message.content.startsWith(`${prefix}anyinvite`)) {
+		if (message.channel.id !== '363499842607120384') return;
  let args = message.content.slice(1).split(" ");
     if (message.channel.type == "dm") return;
 	
