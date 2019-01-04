@@ -79,6 +79,10 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 }
 	
 		if (message.content.startsWith(`${prefix}userinfo`)) {
+			                  const status = {
+        false: "Human",
+        true: "Bot"
+      }
 	    let args = message.content.split(/ +/g).slice(1) 
             let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === args[0]) || message.guild.members.find(mem => mem.user.username === args[0]) || message.member
             let iicon = player.user.displayAvatarURL;
@@ -96,7 +100,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField(`Roles [${rolesize}]`, `${roles}`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
-            .addField('Bot', user.bot, true)
+            .addField('Bot/Human', status[user.bot], true)
             .addField('Joined Server On:', `${moment2(player.joinedAt).format('LLLL')}` + '\n' + `${player.user.tag} joined` + ' ' + moment2(new Date()).diff(player.joinedAt, 'days') + ' days ago')
             .addField('Account Created On:', `${moment2(player.user.createdAt).format('LLLL')}`)
             .setThumbnail(iicon)
