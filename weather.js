@@ -92,7 +92,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('User ID', user.id, true)
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.displayName}`, true) 
-            .addField('Highest Member Role', `${player.highestRole.name}`, true)
+            .addField('Highest Member Role', `<@&${player.highestRole.id}>`, true)
             .addField(`Roles [${rolesize}]`, `${roles}`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
