@@ -11,6 +11,7 @@ const ratelimitMap = new Map();
 const ms = require("parse-ms");
 const got = require('got');
 const moment = require('moment');
+const moment2 = require('moment-timezone');
 const randommeme = require('random-puppy');
 require('moment-duration-format');
 
@@ -96,8 +97,8 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
             .addField('Bot', user.bot, true)
-            .addField('Joined On:', `${player.joinedAt.toUTCString()}`)
-            .addField('Account Created On:', `${player.user.createdAt.toUTCString()}`)
+            .addField('Joined Server On:', `${moment2(player.joinedAt).format('LLLL')}` + '\n' + `${player.user.tag} joined` + ' ' + moment2(new Date()).diff(player.joinedAt, 'days') + ' days ago')
+            .addField('Account Created On:', `${moment2(player.user.createdAt).format('LLLL')}`)
             .setThumbnail(iicon)
             .setTimestamp();
 	return message.channel.send(userEmbed);
