@@ -69,7 +69,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
 		      let args = message.content.split(/ +/g).slice(1) 
      let membercheck = message.content.split(/ +/g).slice(1) 
      let avatar = membercheck.join(' ')
-	   let player = message.mentions.members.first() || message.guild.members.find(mem => mem.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatar) || message.guild.members.find(mem => mem.user.username === avatar)
+	   let player = message.mentions.members.first() || message.guild.members.find(mem => mem.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatar) || message.guild.members.find(mem => mem.user.username === avatar) || message.guild.members.find(mem => mem.nickname === avatar) || message.member
 	   let user = player.user
 if(!user) return message.channel.send("You haven't selected/mentioned a user whose avatar you want to see."); 
     let avatarEmbed = new Discord.RichEmbed()
@@ -88,7 +88,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
       }
 	    let args = message.content.split(/ +/g).slice(1) 
 	    let avatarperson = args.join(' ')
-            let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatarperson) || message.guild.members.find(mem => mem.user.username === avatarperson) || message.member
+            let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatarperson) || message.guild.members.find(mem => mem.user.username === avatarperson) || message.guild.members.find(mem => mem.nickname === avatarperson) || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
