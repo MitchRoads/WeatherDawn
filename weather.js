@@ -82,10 +82,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 }
 	
 		if (message.content.startsWith(`${prefix}userinfo`)) {
-			                  const status = {
-        false: "Human",
-        true: "Bot"
-      }
+	    let status = {false: "Human", true: "Bot"}
 	    let args = message.content.split(/ +/g).slice(1) 
 	    let avatarperson = args.join(' ')
             let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatarperson) || message.guild.members.find(mem => mem.user.username === avatarperson) || message.guild.members.find(mem => mem.nickname === avatarperson) || message.member
@@ -93,6 +90,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
 	    let rolesize = player.roles.size - 1;
+	    if (rolesize > 15) {
             let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
@@ -110,26 +108,26 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .setThumbnail(iicon)
             .setTimestamp();
 	return message.channel.send(userEmbed);
-      }
-//       } else {
-//                     let userEmbed = new Discord.RichEmbed()
-//             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
-//             .setThumbnail(user.displayAvatarURL)
-//             .setColor('#2B547E')
-//             .addField('User ID', user.id, true)
-//             .addField('Current Tag', user.tag, true)
-//             .addField('Server Nickname', `${player.nickname || "None"}`, true) 
-//             .addField('Highest Member Role', `<@&${player.highestRole.id}>`, true)
-//             .addField(`Roles [${rolesize}]`, `${user.user.username} has over 100 roles!`)
-//             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
-//             .addField('Status', user.presence.status, true)
-//             .addField('Bot/Human', status[user.bot], true)
-//             .addField('Joined Server On:', `${moment2(player.joinedAt).format('LLLL')}` + '\n' + `${player.user.tag} joined` + ' ' + moment2(new Date()).diff(player.joinedAt, 'days') + ' days ago')
-//             .addField('Account Created On:', `${moment2(player.user.createdAt).format('LLLL')}`)
-//             .setThumbnail(iicon)
-//             .setTimestamp();
-// 	return message.channel.send(userEmbed);
-// 	}
+      } else {
+                    let userEmbed = new Discord.RichEmbed()
+            .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
+            .setThumbnail(user.displayAvatarURL)
+            .setColor('#2B547E')
+            .addField('User ID', user.id, true)
+            .addField('Current Tag', user.tag, true)
+            .addField('Server Nickname', `${player.nickname || "None"}`, true) 
+            .addField('Highest Member Role', `<@&${player.highestRole.id}>`, true)
+            .addField(`Roles [${rolesize}]`, `${user.user.username} has too many roles to list the names of them!`)
+            .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
+            .addField('Status', user.presence.status, true)
+            .addField('Bot/Human', status[user.bot], true)
+            .addField('Joined Server On:', `${moment2(player.joinedAt).format('LLLL')}` + '\n' + `${player.user.tag} joined` + ' ' + moment2(new Date()).diff(player.joinedAt, 'days') + ' days ago')
+            .addField('Account Created On:', `${moment2(player.user.createdAt).format('LLLL')}`)
+            .setThumbnail(iicon)
+            .setTimestamp();
+	return message.channel.send(userEmbed);
+	}
+
   
    if (message.content.startsWith(`${prefix}botinfo`)) {
 
