@@ -135,7 +135,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	    let status = {false: "Human", true: "Bot"}
 	    let args = message.content.split(/ +/g).slice(1) 
 	    let avatarperson = args.join(' ')
-            let player = loot.first() || loot.find(mem => mem.user.id === args[0]) || loot.find(mem => mem.user.tag === avatarperson) || loot.find(mem => mem.user.username === avatarperson) || loot.find(mem => mem.nickname === avatarperson) || message.member
+            let player = loot.find(mem => mem.user.id === args[0]) || loot.find(mem => mem.user.tag === avatarperson) || loot.find(mem => mem.user.username === avatarperson) || loot.find(mem => mem.nickname === avatarperson) || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
