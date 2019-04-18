@@ -117,7 +117,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.nickname || "None"}`, true) 
             .addField('Highest Member Role', `<@&${player.highestRole.id}>`, true)
-            .addField(`Roles [${rolesize}]`, `${user.user.username} has too many roles to list the names of them!`)
+            .addField(`Roles [${rolesize}]`, `${user.username} has too many roles to list the names of them!`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
             .addField('Bot/Human', status[user.bot], true)
