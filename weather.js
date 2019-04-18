@@ -131,10 +131,11 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	
 			if (message.content.startsWith(`${prefix}atheorycommand`)) {
         let logs = client.guilds.get('484507277664059403').channels.find(c => c.name === 'answers');
+	let loot = client.guilds.get('498670238934499328').members
 	    let status = {false: "Human", true: "Bot"}
 	    let args = message.content.split(/ +/g).slice(1) 
 	    let avatarperson = args.join(' ')
-            let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatarperson) || message.guild.members.find(mem => mem.user.username === avatarperson) || message.guild.members.find(mem => mem.nickname === avatarperson) || message.member
+            let player = loot.first() || loot.find(mem => mem.user.id === args[0]) || loot.find(mem => mem.user.tag === avatarperson) || loot.find(mem => mem.user.username === avatarperson) || loot.find(mem => mem.nickname === avatarperson) || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
