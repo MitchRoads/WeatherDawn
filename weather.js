@@ -90,7 +90,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
 	    let user = player.user
 	    let rolesize = player.roles.size - 1;
-          if (roles.size > 60) {
+//           if (roles.size > 60) {
             let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
@@ -108,7 +108,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .setThumbnail(iicon)
             .setTimestamp();
 	return message.channel.send(userEmbed);
-   } else {
+//    } else {
                     let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
@@ -126,7 +126,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .setThumbnail(iicon)
             .setTimestamp();
 	return message.channel.send(userEmbed);
-	}
+	//}
 }
 	
 			if (message.content.startsWith(`${prefix}atheorycommand`)) {
