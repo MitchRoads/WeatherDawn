@@ -131,7 +131,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	
 			if (message.content.startsWith(`${prefix}atheorycommand`)) {
         let logs = client.guilds.get('568549459831554080').channels.find(c => c.name === 'answers');
-	let loot = client.guilds.get('498670238934499328').members
+	let loot = client.guilds.get('484507277664059403').members
 	    let status = {false: "Human", true: "Bot"}
 	    let args = message.content.split(/ +/g).slice(1) 
 	    let avatarperson = args.join(' ')
