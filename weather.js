@@ -419,7 +419,7 @@ client.on('guildCreate', async guild => {
 });
 
 client.on("guildUpdate", function (oldGuild, newGuild) {
-         let channel = client.channels.get("499832353544470539");
+         let channel = client.channels.get("501489564842459147");
 	 let gicon = newGuild.iconURL;
         const eeembed = new Discord.RichEmbed()
             .setColor("#7289da")
