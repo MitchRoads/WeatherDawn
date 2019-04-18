@@ -127,6 +127,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .setTimestamp();
 	return message.channel.send(userEmbed);
 	}
+}
 
   
    if (message.content.startsWith(`${prefix}botinfo`)) {
