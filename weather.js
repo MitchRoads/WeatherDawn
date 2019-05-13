@@ -58,7 +58,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Channel Total', message.guild.channels.size, true)
     .addField('Region', message.guild.region, true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
-    .addField('Guild Owner', message.guild.owner, true)
+    .addField('Guild Owner', `${message.guild.owner.tag}|${message.guild.owner}`, true)
     .setFooter(`${server}`, sicon)
     .setThumbnail(sicon) 
     .setTimestamp();
