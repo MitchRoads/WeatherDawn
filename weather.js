@@ -93,14 +93,15 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	    let user = player.user
 	    let rolesize = player.roles.size - 1;
 //           if (roles.size > 60) {
-            let userEmbed = new Discord.RichEmbed()
+            let toprole = (user.highestRole != "@everyone") ? user.highestRole : "None"
+	    let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
             .setColor('#2B547E')
             .addField('User ID', user.id, true)
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.nickname || "None"}`, true) 
-            .addField('Highest Member Role', `<@&${player.highestRole.id}>`, true)
+            .addField('Highest Member Role', toprole, true)
             .addField(`Roles [${rolesize}]`, `${roles}`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
