@@ -94,7 +94,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	    let rolesize = player.roles.size - 1;
 //           if (roles.size > 60) {
             let highestrole = user.highestRole
-            let toprole = (highestrole = "@everyone") ? "None" : highestrole
+            let toprole = (highestrole != "@everyone") ? highestrole : "This user has no roles"
             //let toprole = (user.highestRole != "@everyone") ? user.highestRole : "None"
 	    let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
