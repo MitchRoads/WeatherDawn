@@ -94,7 +94,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	    let rolesize = player.roles.size - 1;
 //           if (roles.size > 60) {
             let highestrole = user.highestRole
-            let toprole = (highestrole != "@everyone") ? highestrole : "This user has no roles"
+//             let toprole = (highestrole != "@everyone") ? highestrole : "This user has no roles"
             //let toprole = (user.highestRole != "@everyone") ? user.highestRole : "None"
 	    let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
@@ -103,7 +103,7 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
             .addField('User ID', user.id, true)
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.nickname || "None"}`, true) 
-            .addField('Highest Member Role', toprole, true)
+            .addField('Highest Member Role', highestrole, true)
             .addField(`Roles [${rolesize}]`, `${roles}`)
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
