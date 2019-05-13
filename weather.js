@@ -45,6 +45,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     let server = message.guild.name;
     let rolesize = message.guild.roles.size - 1;
     let realtotal = message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size;
+    let international = {'us-west': 'USA: West Coast', 'us-east': 'USA: East Coast', 'brazil': 'Brazil', 'us-central': 'USA: Central', 'eu-west': 'Europe: Western', 'eu-central': 'Europe: Central', 'hongkong': 'Hong Kong', 'japan': 'Japan', 'russia': "Russia", 'singapore': 'Singapore', 'southafrica': 'South Africa', 'sydney': 'Sydney'}
     let serverembed = new Discord.RichEmbed()
     .setTitle("👑 Server Information")
     .setDescription(`Information on ${server}:`)
@@ -56,7 +57,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Member Total', message.guild.memberCount, true)
     .addField('Role Total', `${rolesize}`, true)
     .addField('Channel Total', message.guild.channels.size, true)
-    .addField('Region', message.guild.region, true)
+    .addField('Region', international[message.guild.region], true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
     .addField('Guild Owner', `${message.guild.owner.user.tag}|${message.guild.owner}`, true)
     .setFooter(`${server}`, sicon)
