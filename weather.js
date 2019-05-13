@@ -58,7 +58,7 @@ if (message.content.startsWith(`${prefix}serverinfo`)) {
     .addField('Channel Total', message.guild.channels.size, true)
     .addField('Region', message.guild.region, true)
     .addField('Date Of Server Creation', message.guild.createdAt.toLocaleDateString(), true)
-    .addField('Guild Owner', `${message.guild.owner.tag}|${message.guild.owner}`, true)
+    .addField('Guild Owner', `${message.guild.owner.user.tag}|${message.guild.owner}`, true)
     .setFooter(`${server}`, sicon)
     .setThumbnail(sicon) 
     .setTimestamp();
@@ -87,7 +87,8 @@ if(!user) return message.channel.send("You haven't selected/mentioned a user who
 	    let avatarperson = args.join(' ')
             let player = message.mentions.members.first() || message.guild.members.find(mem => mem.user.id === args[0]) || message.guild.members.find(mem => mem.user.tag === avatarperson) || message.guild.members.find(mem => mem.user.username === avatarperson) || message.guild.members.find(mem => mem.nickname === avatarperson) || message.member
             let iicon = player.user.displayAvatarURL;
-            let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
+            //let roles = player.roles.map(role => role).slice(1).join(" ") || "None";
+            let roles = player.roles.filter(r => r.name !== "@everyone").map(r => `<@&${r.id}>`).join(' | ').toString() || "None"
 	    let user = player.user
 	    let rolesize = player.roles.size - 1;
 //           if (roles.size > 60) {
