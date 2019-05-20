@@ -234,7 +234,7 @@ let gRole = message.guild.roles.find(r => r.name === role);
 	         if (message.content.toLowerCase().startsWith(`${prefix}rolelist`)) {
               let roles = message.guild.roles;
               let rolesize = message.guild.roles.size - 1;
-                let list = roles.map(r => `r.name`).slice(1, 45).join(", ")
+                let list = roles.map(r => `\`${r.name}`\``).slice(1, 45).join(", ")
 		//if (rolesize.length > 46) return message.channel.send("Seems that there are over 45 roles here... crap.")
                let roleembed = new Discord.RichEmbed()
                .setTitle(`🔷 Server Roles`)
