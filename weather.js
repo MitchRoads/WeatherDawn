@@ -239,7 +239,7 @@ let gRole = message.guild.roles.find(r => r.name === role);
                let roleembed = new Discord.RichEmbed()
                .setTitle(`🔷 Server Roles`)
            .setColor(0x374f6b)
-          .addField('Role Count', `**[${rolesize}]**`)
+          .addField('Role Amount', `**[${rolesize}]**`)
           .addField('Roles', `${list}`, true)  
         message.channel.send(roleembed);
           } 
